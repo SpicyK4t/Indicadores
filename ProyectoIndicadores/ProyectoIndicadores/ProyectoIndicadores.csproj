@@ -129,10 +129,19 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
+    <Compile Include="Controllers\AplicaController.cs" />
+    <Compile Include="Controllers\AreaController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\IndicadorController.cs" />
+    <Compile Include="Controllers\SectorController.cs" />
+    <Compile Include="Controllers\UsuarioController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\Aplica.cs" />
+    <Compile Include="Models\Area.cs" />
+    <Compile Include="Models\Indicador.cs" />
+    <Compile Include="Models\IndicadoresContext.cs" />
     <Compile Include="Models\Sector.cs" />
     <Compile Include="Models\Usuario.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -232,6 +241,31 @@
     <Content Include="Views\Shared\Error.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\Sector\Index.cshtml" />
+    <Content Include="Views\Sector\Details.cshtml" />
+    <Content Include="Views\Sector\Create.cshtml" />
+    <Content Include="Views\Sector\Edit.cshtml" />
+    <Content Include="Views\Sector\Delete.cshtml" />
+    <Content Include="Views\Area\Index.cshtml" />
+    <Content Include="Views\Area\Details.cshtml" />
+    <Content Include="Views\Area\Create.cshtml" />
+    <Content Include="Views\Area\Edit.cshtml" />
+    <Content Include="Views\Area\Delete.cshtml" />
+    <Content Include="Views\Indicador\Index.cshtml" />
+    <Content Include="Views\Indicador\Details.cshtml" />
+    <Content Include="Views\Indicador\Create.cshtml" />
+    <Content Include="Views\Indicador\Edit.cshtml" />
+    <Content Include="Views\Indicador\Delete.cshtml" />
+    <Content Include="Views\Aplica\Index.cshtml" />
+    <Content Include="Views\Aplica\Details.cshtml" />
+    <Content Include="Views\Aplica\Create.cshtml" />
+    <Content Include="Views\Aplica\Edit.cshtml" />
+    <Content Include="Views\Aplica\Delete.cshtml" />
+    <Content Include="Views\Usuario\Index.cshtml" />
+    <Content Include="Views\Usuario\Details.cshtml" />
+    <Content Include="Views\Usuario\Create.cshtml" />
+    <Content Include="Views\Usuario\Edit.cshtml" />
+    <Content Include="Views\Usuario\Delete.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

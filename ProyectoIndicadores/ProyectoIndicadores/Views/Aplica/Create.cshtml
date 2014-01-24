@@ -1,0 +1,45 @@
+﻿@model ProyectoIndicadores.Models.Aplica
+
+@{
+    ViewBag.Title = "Create";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Create</h2>
+
+@using (Html.BeginForm()) {
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true)
+
+    <fieldset>
+        <legend>Aplica</legend>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.indicador_id, "indicador")
+        </div>
+        <div class="editor-field">
+            @Html.DropDownList("indicador_id", String.Empty)
+            @Html.ValidationMessageFor(model => model.indicador_id)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.valor)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.valor)
+            @Html.ValidationMessageFor(model => model.valor)
+        </div>
+
+        <p>
+            <input type="submit" value="Create" />
+        </p>
+    </fieldset>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

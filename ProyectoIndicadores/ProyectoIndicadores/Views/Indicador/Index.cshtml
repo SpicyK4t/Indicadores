@@ -1,0 +1,58 @@
+﻿@model IEnumerable<ProyectoIndicadores.Models.Indicador>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table>
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.nombre)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.meta)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.i_s)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.institucional)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.proveedor.correo)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.nombre)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.meta)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.i_s)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.institucional)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.proveedor.correo)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.pk }) |
+            @Html.ActionLink("Details", "Details", new { id=item.pk }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.pk })
+        </td>
+    </tr>
+}
+
+</table>
