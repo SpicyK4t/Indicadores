@@ -24,7 +24,7 @@ namespace ProyectoIndicadores.Controllers
         //
         // GET: /Usuario/Details/5
 
-        public ActionResult Details(Guid id = null)
+        public ActionResult Details(Guid id)
         {
             Usuario usuario = db.usuarios.Find(id);
             if (usuario == null)
@@ -63,7 +63,7 @@ namespace ProyectoIndicadores.Controllers
         //
         // GET: /Usuario/Edit/5
 
-        public ActionResult Edit(Guid id = null)
+        public ActionResult Edit(Guid id)
         {
             Usuario usuario = db.usuarios.Find(id);
             if (usuario == null)
@@ -92,7 +92,7 @@ namespace ProyectoIndicadores.Controllers
         //
         // GET: /Usuario/Delete/5
 
-        public ActionResult Delete(Guid id = null)
+        public ActionResult Delete(Guid id)
         {
             Usuario usuario = db.usuarios.Find(id);
             if (usuario == null)
