@@ -140,6 +140,7 @@
     </Compile>
     <Compile Include="Models\Aplica.cs" />
     <Compile Include="Models\Area.cs" />
+    <Compile Include="Models\FormularioRegistroUsuariocs.cs" />
     <Compile Include="Models\Indicador.cs" />
     <Compile Include="Models\IndicadoresContext.cs" />
     <Compile Include="Models\Sector.cs" />
