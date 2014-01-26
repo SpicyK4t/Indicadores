@@ -22,16 +22,18 @@ namespace ProyectoIndicadores.Models
         [Required(ErrorMessage="Campo requerido")]
         public float meta { get; set; }
 
-        [Display(Name="Is")]
-        public float i_s { get; set; }
+        [Display(Name="Menor a la Meta")]
+        public bool menor_meta { get; set; }
 
         [Display(Name="Institucional")]
         public float institucional { get; set; }
 
         [Display(Name = "Proveedor")]
-        public Guid proveedor_id { get; set; }
+        public Guid? proveedor_id { get; set; }
         [ForeignKey("proveedor_id")]
-        public Usuario proveedor { get; set; }
+        public virtual Usuario proveedor { get; set; }
+
+        
 
         public ICollection<Aplica> aplica_en { get; set; }
 

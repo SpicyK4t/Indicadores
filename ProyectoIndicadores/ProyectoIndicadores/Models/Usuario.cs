@@ -47,8 +47,8 @@ namespace ProyectoIndicadores.Models
         public string salt { get; set; }
 
         
-        public ICollection<Indicador> provee { get; set; }
-        public ICollection<Area> consume { get; set; }
+        public virtual ICollection<Indicador> provee { get; set; }
+        public virtual ICollection<Area> consume { get; set; }
 
         public Usuario()
         {

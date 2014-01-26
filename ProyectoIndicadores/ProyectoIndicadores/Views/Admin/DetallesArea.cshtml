@@ -1,0 +1,37 @@
+﻿@model ProyectoIndicadores.Models.Area
+
+@{
+    ViewBag.Title = "DetallesArea";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>DetallesArea</h2>
+
+<fieldset>
+    <legend>Area</legend>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.nombre)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.nombre)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.descripcion)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.descripcion)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.sector_id)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.sector_id)
+    </div>
+</fieldset>
+<p>
+    @Html.ActionLink("Editar", "EditarArea", "Admin" , new { id=Model.pk }, "") |
+    @Html.ActionLink("Regresar a la Lista", "ListaArea", "Admin")
+</p>

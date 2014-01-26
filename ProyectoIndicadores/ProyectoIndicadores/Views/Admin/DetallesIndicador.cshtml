@@ -1,0 +1,51 @@
+﻿@model ProyectoIndicadores.Models.Indicador
+
+@{
+    ViewBag.Title = "DetallesIndicador";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>DetallesIndicador</h2>
+
+<fieldset>
+    <legend>Indicador</legend>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.nombre)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.nombre)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.meta)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.meta)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.institucional)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.institucional)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.menor_meta)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.menor_meta)
+    </div>    
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.proveedor_id)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.proveedor.nombre_usuario)
+    </div>
+</fieldset>
+<p>
+    @Html.ActionLink("Editar", "EditarIndicador", "Admin", new { id=Model.pk }, "") |
+    @Html.ActionLink("Regresar a la Lista", "ListaIndicadores", "Admin")
+</p>

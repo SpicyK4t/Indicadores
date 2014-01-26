@@ -1,14 +1,14 @@
-﻿@model IEnumerable<ProyectoIndicadores.Models.Sector>
+﻿@model IEnumerable<ProyectoIndicadores.Models.Area>
 
 @{
-    ViewBag.Title = "Lista de los Sectores";
+    ViewBag.Title = "ListaAreas";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Sectores</h2>
+<h2>ListaAreas</h2>
 
 <p>
-    @Html.ActionLink("Crear nuevo", "NuevoSector", "Admin")
+    @Html.ActionLink("Crear nueva", "NuevaArea", "Admin")
 </p>
 <table>
     <tr>
@@ -17,6 +17,9 @@
         </th>
         <th>
             @Html.DisplayNameFor(model => model.descripcion)
+        </th>
+        <th>
+            Sector:
         </th>
         <th></th>
     </tr>
@@ -30,9 +33,12 @@
             @Html.DisplayFor(modelItem => item.descripcion)
         </td>
         <td>
-            @Html.ActionLink("Editar", "EditarSector", "Admin" , new { id=item.pk }, "") |
-            @Html.ActionLink("Detalles", "DetallesSector", "Admin", new { id = item.pk }, "") |
-            @Html.ActionLink("Borrar", "BorrarSector", "Admin" , new { id=item.pk }, "")
+            @Html.DisplayFor(modelItem => item.sector.nombre)
+        </td>
+        <td>
+            @Html.ActionLink("Editar", "EditarArea", new { id=item.pk }) |
+            @Html.ActionLink("Detalles", "DetallesArea", new { id=item.pk }) |
+            @Html.ActionLink("Borrar", "BorrarArea", new { id=item.pk })
         </td>
     </tr>
 }

@@ -1,0 +1,55 @@
+﻿@model ProyectoIndicadores.Models.Indicador
+
+@{
+    ViewBag.Title = "BorrarIndicador";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>BorrarIndicador</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<fieldset>
+    <legend>Indicador</legend>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.nombre)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.nombre)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.meta)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.meta)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.institucional)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.institucional)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.menor_meta)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.menor_meta)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.proveedor_id)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.proveedor.nombre_usuario)
+    </div>
+</fieldset>
+@using (Html.BeginForm()) {
+    @Html.AntiForgeryToken()
+    <p>
+        <input type="submit" value="Delete" /> |
+        @Html.ActionLink("Regresar a la Lista", "ListaIndicadores", "Admin")
+    </p>
+}

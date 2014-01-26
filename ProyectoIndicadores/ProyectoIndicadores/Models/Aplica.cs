@@ -19,7 +19,7 @@ namespace ProyectoIndicadores.Models
 
         [Required]
         [Display(Name = "Indicador")]
-        public int indicador_id { get; set; }
+        public int? indicador_id { get; set; }
         [ForeignKey("indicador_id")]
         public virtual Indicador indicador { get; set; }
 

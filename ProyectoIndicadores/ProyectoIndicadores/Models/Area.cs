@@ -24,7 +24,7 @@ namespace ProyectoIndicadores.Models
         public string descripcion { get; set; }
 
         [Display(Name="Sector")]
-        public int sector_id { get; set; }
+        public int? sector_id { get; set; }
         [ForeignKey("sector_id")]
         public virtual Sector sector { get; set; }
 

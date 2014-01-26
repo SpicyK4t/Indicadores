@@ -130,6 +130,7 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\AdminController.cs" />
+    <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Forms\FormularioIngreso.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -141,6 +142,7 @@
     <Compile Include="Models\IndicadoresContext.cs" />
     <Compile Include="Models\Sector.cs" />
     <Compile Include="Models\Usuario.cs" />
+    <Compile Include="Models\VistaProveedoresConsumidores.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -249,6 +251,19 @@
     <Content Include="Views\Shared\_LayoutLogin.cshtml" />
     <Content Include="Views\Admin\EditarSector.cshtml" />
     <Content Include="Views\Admin\DetallesSector.cshtml" />
+    <Content Include="Views\Admin\BorrarSector.cshtml" />
+    <Content Include="Views\Admin\ListaAreas.cshtml" />
+    <Content Include="Views\Admin\NuevaArea.cshtml" />
+    <Content Include="Views\Admin\DetallesArea.cshtml" />
+    <Content Include="Views\Admin\EditarArea.cshtml" />
+    <Content Include="Views\Admin\BorrarArea.cshtml" />
+    <Content Include="Views\Admin\ListaIndicadores.cshtml" />
+    <Content Include="Views\Admin\NuevoIndicador.cshtml" />
+    <Content Include="Views\Admin\EditarIndicador.cshtml" />
+    <Content Include="Views\Admin\DetallesIndicador.cshtml" />
+    <Content Include="Views\Admin\BorrarIndicador.cshtml" />
+    <Content Include="Views\Admin\ListaUsuarios.cshtml" />
+    <Content Include="Views\Admin\Proveedor.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

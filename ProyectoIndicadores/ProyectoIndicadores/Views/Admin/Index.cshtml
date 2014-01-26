@@ -2,7 +2,14 @@
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
-<h2>Usuarios</h2>
-
 <h2>Sectores</h2>
 @Html.ActionLink("Lista De Sectores", "ListaSectores", "Admin",null, "" )
+
+<h2>Areas</h2>
+@Html.ActionLink("Lista De Areas", "ListaAreas", "Admin", null, "")
+
+<h2>Indiadores</h2>
+@Html.ActionLink("Lista de Indicadores", "ListaIndicadores", "Admin", null, "")
+
+<h2>Usuarios</h2>
+@Html.ActionLink("Lista de Usuarios", "ListaUsuarios", "Admin", null, "")

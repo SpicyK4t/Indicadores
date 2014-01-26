@@ -1,0 +1,33 @@
+﻿@model ProyectoIndicadores.Models.VistaProveedoresConsumidores
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Proveedor</h2>
+@using(Html.BeginForm()) {
+    @Html.ValidationSummary(true)
+
+    <fieldset>
+       <legend>El usuario @Model.nombre_usuario sera encargo de:</legend>
+        @Html.HiddenFor(x => x.id_usuario)
+        @Html.HiddenFor(x => x.nombre_usuario)        
+        <h4>Proveer:</h4>
+        @Html.LabelFor(x => x.provee_pk) <br />
+        @Html.ListBoxFor(x => x.provee_pk, Model.provee)  
+        <h4>Consume:</h4>
+        @Html.LabelFor(x => x.consumidor__pk) <br />
+        @Html.ListBoxFor(x => x.consumidor__pk, Model.consumidor)
+        <br />
+        <p>
+            <input type="submit" value="Acpetar" />
+        </p>
+    </fieldset>
+}
+<div>
+    @Html.ActionLink("Regresar a la lista", "ListaUsuarios", "Admin")
+</div>
+
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}
