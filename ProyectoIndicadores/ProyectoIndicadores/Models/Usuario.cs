@@ -35,9 +35,13 @@ namespace ProyectoIndicadores.Models
 
         [Display(Name="Contraseña")]
         [Required(ErrorMessage="Falta la contraseña")]
-        [DataType(DataType.Password, ErrorMessage="Contraseña invalida")]
-        [StringLength(Int32.MaxValue, MinimumLength=6, ErrorMessage="La contraseña debe ser mayor a 6 digitos")]
+        [DataType(DataType.Password, ErrorMessage="Contraseña invalida")]        
         public string contrasenia { get; set; }
+
+
+        [Display(Name = "IsAdmin")]
+        [Required(ErrorMessage="Falta es campo")]
+        public bool is_admin { get; set; }
 
         [Display(Name="Salt")]        
         public string salt { get; set; }

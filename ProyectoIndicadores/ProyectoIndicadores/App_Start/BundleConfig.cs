@@ -49,6 +49,7 @@ namespace ProyectoIndicadores
             bundles.Add(new StyleBundle("~/Content/bootstrap").Include(
                 "~/Content/bootstrap.css", "~/Content/bootstrap-theme.css"));
 
+
         }
     }
 }

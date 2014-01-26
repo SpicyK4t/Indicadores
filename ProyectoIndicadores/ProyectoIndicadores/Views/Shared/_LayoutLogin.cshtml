@@ -1,0 +1,39 @@
+﻿<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>@ViewBag.Title</title>
+        <!--[if lt IE 7]>
+		    <script src="http://ie7-js.googlecode.com/svn/version/2.1(beta4)/IE7.js"></script>
+	    <![endif]-->
+	    <!--[if lt IE 8]>
+		    <script src="http://ie7-js.googlecode.com/svn/version/2.1(beta4)/IE8.js"></script>
+	    <![endif]-->
+	    <!--[if lt IE 9]>
+		    <script src="http://ie7-js.googlecode.com/svn/version/2.1(beta4)/IE9.js"></script>
+	    <![endif]-->
+        @Styles.Render("~/Content/css")        
+        @Styles.Render("~/Content/bootstrap")
+        @Scripts.Render("~/bundles/modernizr")
+    </head>
+    <body>
+                      
+        <section class="container">
+            @RenderBody()                    
+        </section>
+        
+        <footer>                 
+            <hr />
+            <div class="container">
+                <p>Universidad de Celaya Carretera Panamericana km. 269 Col. Rancho Pinto,Celaya, Guanajuato, México C.P. 38080. 
+        	    <br />Tel: +52(461)6139099 Fax: (461)6139600 </p>
+            </div>
+            
+        </footer>
+
+        @Scripts.Render("~/bundles/jquery")
+        @Scripts.Render("~/bundles/bootstrap")
+        @RenderSection("scripts", required: false)
+    </body>
+</html>

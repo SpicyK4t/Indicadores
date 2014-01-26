@@ -1,21 +1,21 @@
-﻿@model ProyectoIndicadores.Models.Usuario
+﻿@model ProyectoIndicadores.Forms.FormularioRegistroUsuario
 
 @{
-    ViewBag.Title = "Create";
+    ViewBag.Title = "Registro de Nuevo Usuario";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Create</h2>
+<h2>&nbsp;</h2>
 
 @using (Html.BeginForm()) {
     @Html.AntiForgeryToken()
     @Html.ValidationSummary(true)
 
     <fieldset>
-        <legend>Usuario</legend>
+        <legend>Formulario de Nuevo Registro</legend>        
 
         <div class="editor-label">
-            @Html.LabelFor(model => model.correo)
+            @Html.LabelFor(model => model.correo):
         </div>
         <div class="editor-field">
             @Html.EditorFor(model => model.correo)
@@ -23,7 +23,7 @@
         </div>
 
         <div class="editor-label">
-            @Html.LabelFor(model => model.nombre)
+            @Html.LabelFor(model => model.nombre):
         </div>
         <div class="editor-field">
             @Html.EditorFor(model => model.nombre)
@@ -31,7 +31,7 @@
         </div>
 
         <div class="editor-label">
-            @Html.LabelFor(model => model.apellido)
+            @Html.LabelFor(model => model.apellido):
         </div>
         <div class="editor-field">
             @Html.EditorFor(model => model.apellido)
@@ -39,7 +39,7 @@
         </div>
 
         <div class="editor-label">
-            @Html.LabelFor(model => model.nombre_usuario)
+            @Html.LabelFor(model => model.nombre_usuario):
         </div>
         <div class="editor-field">
             @Html.EditorFor(model => model.nombre_usuario)
@@ -47,39 +47,32 @@
         </div>
 
         <div class="editor-label">
-            @Html.LabelFor(model => model.contrasenia)
+            @Html.LabelFor(model => model.contrasenia):
         </div>
         <div class="editor-field">
             @Html.EditorFor(model => model.contrasenia)
             @Html.ValidationMessageFor(model => model.contrasenia)
         </div>
-
         <div class="editor-label">
-            @Html.LabelFor(model => model.is_admin)
+            @Html.LabelFor(model => model.confirmar_constrasenia):
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.confirmar_constrasenia)
+            @Html.ValidationMessageFor(model => model.confirmar_constrasenia)
+        </div>
+        <div class="editor-label">
+            @Html.LabelFor(model => model.is_admin)?:
         </div>
         <div class="editor-field">
             @Html.EditorFor(model => model.is_admin)
             @Html.ValidationMessageFor(model => model.is_admin)
         </div>
         
-
-        <div class="editor-label">
-            @Html.LabelFor(model => model.salt)
-        </div>
-        <div class="editor-field">
-            @Html.EditorFor(model => model.salt)
-            @Html.ValidationMessageFor(model => model.salt)
-        </div>
-
         <p>
             <input type="submit" value="Create" />
         </p>
     </fieldset>
 }
-
-<div>
-    @Html.ActionLink("Back to List", "Index")
-</div>
 
 @section Scripts {
     @Scripts.Render("~/bundles/jqueryval")
