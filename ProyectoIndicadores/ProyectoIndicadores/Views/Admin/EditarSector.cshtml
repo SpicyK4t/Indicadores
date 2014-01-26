@@ -1,18 +1,17 @@
-﻿@model ProyectoIndicadores.Models.Area
+﻿@model ProyectoIndicadores.Models.Sector
 
 @{
-    ViewBag.Title = "Edit";
+    ViewBag.Title = "Editar el Sector";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Edit</h2>
 
 @using (Html.BeginForm()) {
     @Html.AntiForgeryToken()
     @Html.ValidationSummary(true)
 
     <fieldset>
-        <legend>Area</legend>
+        <legend>Formulario del Sector</legend>
 
         @Html.HiddenFor(model => model.pk)
 
@@ -32,14 +31,6 @@
             @Html.ValidationMessageFor(model => model.descripcion)
         </div>
 
-        <div class="editor-label">
-            @Html.LabelFor(model => model.sector_id, "sector")
-        </div>
-        <div class="editor-field">
-            @Html.DropDownList("sector_id", String.Empty)
-            @Html.ValidationMessageFor(model => model.sector_id)
-        </div>
-
         <p>
             <input type="submit" value="Save" />
         </p>
@@ -47,7 +38,7 @@
 }
 
 <div>
-    @Html.ActionLink("Back to List", "Index")
+    @Html.ActionLink("Regresar a la Lista", "ListaSectores", "Admin")
 </div>
 
 @section Scripts {

@@ -1,15 +1,13 @@
 ﻿@model ProyectoIndicadores.Models.Sector
 
 @{
-    ViewBag.Title = "Delete";
+    ViewBag.Title = "Detalles del Sector";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Delete</h2>
 
-<h3>Are you sure you want to delete this?</h3>
 <fieldset>
-    <legend>Sector</legend>
+    <legend>Detalles del Sector</legend>
 
     <div class="display-label">
          @Html.DisplayNameFor(model => model.nombre)
@@ -25,10 +23,7 @@
         @Html.DisplayFor(model => model.descripcion)
     </div>
 </fieldset>
-@using (Html.BeginForm()) {
-    @Html.AntiForgeryToken()
-    <p>
-        <input type="submit" value="Delete" /> |
-        @Html.ActionLink("Back to List", "Index")
-    </p>
-}
+<p>
+    @Html.ActionLink("Editar", "EditarSector", "Admin", new { id = Model.pk }, "") |
+    @Html.ActionLink("Regresar a la Lista", "ListaSectores", "Admin")
+</p>

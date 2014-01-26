@@ -71,8 +71,58 @@ namespace ProyectoIndicadores.Controllers
 
         #region Manejo de Sectores
 
-        
+        #region Agregar Sectores
+        [HttpGet]
+        public ActionResult NuevoSector()
+        {
+            return View();
+        }
+        [HttpPost]
+        public ActionResult NuevoSector(Sector nuevo_sector)
+        {
+            if(ModelState.IsValid)
+            {
+                using(var db = new IndicadoresContext())
+                {
+                    db.sectores.Add(nuevo_sector);
+                    db.SaveChanges();
+                }
+            }
+            return View(nuevo_sector);
+        }
+        #endregion
 
+        #region Lista de Sectores
+        public ActionResult ListaSectores()
+        {         
+            return View(new IndicadoresContext().sectores.ToList());
+        }
+        #endregion
+
+        #region Detalles del Sector
+        public ActionResult DetallesSector(int sector_pk) 
+        {            
+            return View(new IndicadoresContext().sectores.Find(sector_pk));
+        }
+        #endregion
+
+        #region Editar Sector
+        public ActionResult EditarSector(int sector_pk)
+        {
+            return View(new IndicadoresContext().sectores.Find(sector_pk));
+        }
+        public ActionResult EditarSector(Sector edicion_sector)
+        {
+            return View();
+        }
+        #endregion
+
+        #region Borrar Sector
+        public ActionResult BorrarSector()
+        {
+            return View();
+        }
+        #endregion
         #endregion
     }
 }

@@ -1,18 +1,18 @@
 ﻿@model ProyectoIndicadores.Models.Sector
 
 @{
-    ViewBag.Title = "Create";
+    ViewBag.Title = "Registro de Nuevo Sector";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Create</h2>
+<h2>&nbsp;</h2>
 
 @using (Html.BeginForm()) {
     @Html.AntiForgeryToken()
     @Html.ValidationSummary(true)
 
     <fieldset>
-        <legend>Sector</legend>
+        <legend>Formulario de nuevo Sector</legend>
 
         <div class="editor-label">
             @Html.LabelFor(model => model.nombre)
@@ -35,10 +35,6 @@
         </p>
     </fieldset>
 }
-
-<div>
-    @Html.ActionLink("Back to List", "Index")
-</div>
 
 @section Scripts {
     @Scripts.Render("~/bundles/jqueryval")
