@@ -87,58 +87,128 @@ namespace ProyectoIndicadores.Models
             context.areas.Add(new Area() { pk = 1, nombre = "kinder", sector_id = 1 });
             context.areas.Add(new Area() { pk = 2, nombre = "Primaria", sector_id = 1 });
             context.areas.Add(new Area() { pk = 3, nombre = "Secundaria", sector_id = 1 });
-            context.areas.Add(new Area() { pk = 4, nombre = "IDIOC", sector_id = 1 });
+            context.areas.Add(new Area() { pk = 4, nombre = "Preparatoria", sector_id = 1 });
+            context.areas.Add(new Area() { pk = 5, nombre = "IDIOC", sector_id = 1 });
 
-            context.areas.Add(new Area() { pk = 5, nombre = "ARQ", sector_id = 2 });
-            context.areas.Add(new Area() { pk = 6, nombre = "DER", sector_id = 2 });
-            context.areas.Add(new Area() { pk = 7, nombre = "LCC", sector_id = 2 });
-            context.areas.Add(new Area() { pk = 8, nombre = "LDD", sector_id = 2 });
-            context.areas.Add(new Area() { pk = 9, nombre = "MKT", sector_id = 2 });
-            context.areas.Add(new Area() { pk = 10, nombre = "LAE", sector_id = 2 });
-            context.areas.Add(new Area() { pk = 11, nombre = "LCI", sector_id = 2 });
-            context.areas.Add(new Area() { pk = 12, nombre = "FLI", sector_id = 2 });
-            context.areas.Add(new Area() { pk = 13, nombre = "IIA", sector_id = 2 });
-            context.areas.Add(new Area() { pk = 14, nombre = "LID", sector_id = 2 });
-            context.areas.Add(new Area() { pk = 15, nombre = "MEDIC", sector_id = 2 });
-            context.areas.Add(new Area() { pk = 16, nombre = "PSIC", sector_id = 2 });
-            context.areas.Add(new Area() { pk = 17, nombre = "LT", sector_id = 2 });
-            context.areas.Add(new Area() { pk = 18, nombre = "LN", sector_id = 2 });
-            context.areas.Add(new Area() { pk = 19, nombre = "LG", sector_id = 2 });
-            context.areas.Add(new Area() { pk = 20, nombre = "LIB", sector_id = 2 });
+            context.areas.Add(new Area() { pk = 6, nombre = "ARQ", sector_id = 2 });
+            context.areas.Add(new Area() { pk = 7, nombre = "DER", sector_id = 2 });
+            context.areas.Add(new Area() { pk = 8, nombre = "LCC", sector_id = 2 });
+            context.areas.Add(new Area() { pk = 9, nombre = "LDD", sector_id = 2 });
+            context.areas.Add(new Area() { pk = 10, nombre = "MKT", sector_id = 2 });
+            context.areas.Add(new Area() { pk = 11, nombre = "LAE", sector_id = 2 });
+            context.areas.Add(new Area() { pk = 12, nombre = "LCI", sector_id = 2 });
+            context.areas.Add(new Area() { pk = 13, nombre = "FLI", sector_id = 2 });
+            context.areas.Add(new Area() { pk = 14, nombre = "IIA", sector_id = 2 });
+            context.areas.Add(new Area() { pk = 15, nombre = "LID", sector_id = 2 });
+            context.areas.Add(new Area() { pk = 16, nombre = "MEDIC", sector_id = 2 });
+            context.areas.Add(new Area() { pk = 17, nombre = "PSIC", sector_id = 2 });
+            context.areas.Add(new Area() { pk = 18, nombre = "LT", sector_id = 2 });
+            context.areas.Add(new Area() { pk = 19, nombre = "LN", sector_id = 2 });
+            context.areas.Add(new Area() { pk = 20, nombre = "LG", sector_id = 2 });
+            context.areas.Add(new Area() { pk = 21, nombre = "LIB", sector_id = 2 });
             
-            context.areas.Add(new Area() { pk = 21, nombre = "FNI", sector_id = 3 });
-            context.areas.Add(new Area() { pk = 22, nombre = "IIAM", sector_id = 3 });
-            context.areas.Add(new Area() { pk = 23, nombre = "FPH", sector_id = 3});
+            context.areas.Add(new Area() { pk = 22, nombre = "FNI", sector_id = 3 });
+            context.areas.Add(new Area() { pk = 23, nombre = "IIAM", sector_id = 3 });
+            context.areas.Add(new Area() { pk = 24, nombre = "FPH", sector_id = 3});
 
-            context.areas.Add(new Area() { pk = 24, nombre = "MDH", sector_id = 4 });
-            context.areas.Add(new Area() { pk = 25, nombre = "FML", sector_id = 4 });
-            context.areas.Add(new Area() { pk = 26, nombre = "MAE", sector_id = 4 });
-            context.areas.Add(new Area() { pk = 27, nombre = "IASE", sector_id = 4 });
-            context.areas.Add(new Area() { pk = 28, nombre = "MIC", sector_id = 4 });
+            context.areas.Add(new Area() { pk = 25, nombre = "MDH", sector_id = 4 });
+            context.areas.Add(new Area() { pk = 26, nombre = "FML", sector_id = 4 });
+            context.areas.Add(new Area() { pk = 27, nombre = "MAE", sector_id = 4 });
+            context.areas.Add(new Area() { pk = 28, nombre = "IASE", sector_id = 4 });
+            context.areas.Add(new Area() { pk = 29, nombre = "MIC", sector_id = 4 });
 
 
-            context.areas.Add(new Area() { pk = 29, nombre = "W-MCL", sector_id = 5 });
-            context.areas.Add(new Area() { pk = 30, nombre = "W-MTI", sector_id = 5 });
-            context.areas.Add(new Area() { pk = 31, nombre = "W-MEM", sector_id = 5 });
+            context.areas.Add(new Area() { pk = 30, nombre = "W-MCL", sector_id = 5 });
+            context.areas.Add(new Area() { pk = 31, nombre = "W-MTI", sector_id = 5 });
+            context.areas.Add(new Area() { pk = 32, nombre = "W-MEM", sector_id = 5 });
 
-            context.areas.Add(new Area() { pk = 32, nombre = "DA", sector_id = 6 });
-            context.areas.Add(new Area() { pk = 33, nombre = "DDH", sector_id = 6 });
+            context.areas.Add(new Area() { pk = 33, nombre = "DA", sector_id = 6 });
+            context.areas.Add(new Area() { pk = 34, nombre = "DDH", sector_id = 6 });
 
             #endregion
 
             #region Anexo Usuarios
             var cipher = new SimpleCrypto.PBKDF2();
-            context.usuarios.Add(new Usuario() { pk = Guid.NewGuid(), nombre = "Alma", correo = "alma@udec.edu.mx", apellido="nose", nombre_usuario = "alma", contrasenia = cypher.Compute("alma2014"), salt = cypher.Salt, is_admin = false });
-            context.usuarios.Add(new Usuario() { pk = Guid.NewGuid(), nombre = "Viridiana", correo = "viridiana@udec.edu.mx", apellido = "nose", nombre_usuario = "viridiana", contrasenia = cypher.Compute("viridiana2014"), salt = cypher.Salt, is_admin = false });
-            context.usuarios.Add(new Usuario() { pk = Guid.NewGuid(), nombre = "Tonoz", correo = "tonoz@udec.edu.mx", apellido = "Zacarias", nombre_usuario = "tonoz", contrasenia = cypher.Compute("tonoz2014"), salt = cypher.Salt, is_admin = false });
-            context.usuarios.Add(new Usuario() { pk = Guid.NewGuid(), nombre = "Armando", correo = "armando@udec.edu.mx", apellido = "nose", nombre_usuario = "armando", contrasenia = cypher.Compute("armando2014"), salt = cypher.Salt, is_admin = false });
-            context.usuarios.Add(new Usuario() { pk = Guid.NewGuid(), nombre = "Moises", correo = "moises@udec.edu.mx", apellido = "nose", nombre_usuario = "moises", contrasenia = cypher.Compute("moises2014"), salt = cypher.Salt, is_admin = false });
-            context.usuarios.Add(new Usuario() { pk = Guid.NewGuid(), nombre = "Lucero", correo = "lucero@udec.edu.mx", apellido = "nose", nombre_usuario = "lucero", contrasenia = cypher.Compute("lucero2014"), salt = cypher.Salt, is_admin = false });
-            context.usuarios.Add(new Usuario() { pk = Guid.NewGuid(), nombre = "Ernesto", correo = "ernesto@udec.edu.mx", apellido = "Nieto", nombre_usuario = "ernesto", contrasenia = cypher.Compute("ernesto2014"), salt = cypher.Salt, is_admin = true });
-            context.usuarios.Add(new Usuario() { pk = Guid.NewGuid(), nombre = "Luisa", correo = "luisa@udec.edu.mx", apellido = "nose", nombre_usuario = "luisa", contrasenia = cypher.Compute("luisa2014"), salt = cypher.Salt, is_admin = false });
-            context.usuarios.Add(new Usuario() { pk = Guid.NewGuid(), nombre = "Sandra", correo = "sandra@udec.edu.mx", apellido = "nose", nombre_usuario = "sandra", contrasenia = cypher.Compute("sandra2014"), salt = cypher.Salt, is_admin = false });
-            context.usuarios.Add(new Usuario() { pk = Guid.NewGuid(), nombre = "Eduardo", correo = "eduardo@udec.edu.mx", apellido = "nose", nombre_usuario = "eduardo", contrasenia = cypher.Compute("eduardo2014"), salt = cypher.Salt, is_admin = false });
-            context.usuarios.Add(new Usuario() { pk = Guid.NewGuid(), nombre = "Ana", correo = "ana@udec.edu.mx", apellido = "nose", nombre_usuario = "ana", contrasenia = cypher.Compute("ana2014"), salt = cypher.Salt, is_admin = false });
+
+            #region instancias usuario
+
+            Usuario alma = new Usuario() { pk = Guid.NewGuid(), nombre = "Alma", correo = "alma@udec.edu.mx", apellido = "nose", nombre_usuario = "alma", contrasenia = cypher.Compute("alma2014"), salt = cypher.Salt, is_admin = false };
+            Usuario viridiana = new Usuario() { pk = Guid.NewGuid(), nombre = "Viridiana", correo = "viridiana@udec.edu.mx", apellido = "nose", nombre_usuario = "viridiana", contrasenia = cypher.Compute("viridiana2014"), salt = cypher.Salt, is_admin = false };
+            Usuario tonoz = new Usuario() { pk = Guid.NewGuid(), nombre = "Tonoz", correo = "tonoz@udec.edu.mx", apellido = "Zacarias", nombre_usuario = "tonoz", contrasenia = cypher.Compute("tonoz2014"), salt = cypher.Salt, is_admin = false };
+            Usuario armando = new Usuario() { pk = Guid.NewGuid(), nombre = "Armando", correo = "armando@udec.edu.mx", apellido = "nose", nombre_usuario = "armando", contrasenia = cypher.Compute("armando2014"), salt = cypher.Salt, is_admin = false };
+            Usuario moises = new Usuario() { pk = Guid.NewGuid(), nombre = "Moises", correo = "moises@udec.edu.mx", apellido = "nose", nombre_usuario = "moises", contrasenia = cypher.Compute("moises2014"), salt = cypher.Salt, is_admin = false };
+            Usuario lucero = new Usuario() { pk = Guid.NewGuid(), nombre = "Lucero", correo = "lucero@udec.edu.mx", apellido = "nose", nombre_usuario = "lucero", contrasenia = cypher.Compute("lucero2014"), salt = cypher.Salt, is_admin = false };
+            Usuario ernesto = new Usuario() { pk = Guid.NewGuid(), nombre = "Ernesto", correo = "ernesto@udec.edu.mx", apellido = "Nieto", nombre_usuario = "ernesto", contrasenia = cypher.Compute("ernesto2014"), salt = cypher.Salt, is_admin = true };
+            Usuario luisa = new Usuario() { pk = Guid.NewGuid(), nombre = "Luisa", correo = "luisa@udec.edu.mx", apellido = "nose", nombre_usuario = "luisa", contrasenia = cypher.Compute("luisa2014"), salt = cypher.Salt, is_admin = false };
+            Usuario sandra = new Usuario() { pk = Guid.NewGuid(), nombre = "Sandra", correo = "sandra@udec.edu.mx", apellido = "nose", nombre_usuario = "sandra", contrasenia = cypher.Compute("sandra2014"), salt = cypher.Salt, is_admin = false };
+            Usuario eduardo = new Usuario() { pk = Guid.NewGuid(), nombre = "Eduardo", correo = "eduardo@udec.edu.mx", apellido = "nose", nombre_usuario = "eduardo", contrasenia = cypher.Compute("eduardo2014"), salt = cypher.Salt, is_admin = false };
+            Usuario ana = new Usuario() { pk = Guid.NewGuid(), nombre = "Ana", correo = "ana@udec.edu.mx", apellido = "nose", nombre_usuario = "ana", contrasenia = cypher.Compute("ana2014"), salt = cypher.Salt, is_admin = false };  
+
+            #endregion
+
+            #region rol usuario proveedor
+            alma.provee.Add(indicadores.Find(1));
+            alma.provee.Add(indicadores.Find(2));
+            alma.provee.Add(indicadores.Find(6));
+            alma.provee.Add(indicadores.Find(19));
+
+            ana.provee.Add(indicadores.Find(31));
+
+            armando.provee.Add(indicadores.Find(8));
+
+            eduardo.provee.Add(indicadores.Find(30));
+
+            ernesto.provee.Add(indicadores.Find(13));
+            ernesto.provee.Add(indicadores.Find(14));
+            ernesto.provee.Add(indicadores.Find(20));
+            ernesto.provee.Add(indicadores.Find(21));
+            ernesto.provee.Add(indicadores.Find(22));
+            ernesto.provee.Add(indicadores.Find(25));
+            ernesto.provee.Add(indicadores.Find(26));
+            ernesto.provee.Add(indicadores.Find(27));
+
+            lucero.provee.Add(indicadores.Find(12));
+
+            luisa.provee.Add(indicadores.Find(23));
+            luisa.provee.Add(indicadores.Find(28));
+
+            moises.provee.Add(indicadores.Find(9));
+            moises.provee.Add(indicadores.Find(10));
+            moises.provee.Add(indicadores.Find(11));
+            moises.provee.Add(indicadores.Find(15));
+            moises.provee.Add(indicadores.Find(16));
+            moises.provee.Add(indicadores.Find(17));
+            moises.provee.Add(indicadores.Find(18));
+            moises.provee.Add(indicadores.Find(24));
+
+            sandra.provee.Add(indicadores.Find(29));
+
+            tonoz.provee.Add(indicadores.Find(7));
+            
+            viridiana.provee.Add(indicadores.Find(3));
+            viridiana.provee.Add(indicadores.Find(4));
+            viridiana.provee.Add(indicadores.Find(5));
+
+            #endregion
+
+            #region añadir a la base de datos
+            context.usuarios.Add(alma);            
+            context.usuarios.Add(viridiana);
+            context.usuarios.Add(tonoz);
+            context.usuarios.Add(armando);
+            context.usuarios.Add(moises);
+            context.usuarios.Add(lucero);
+            context.usuarios.Add(ernesto);
+            context.usuarios.Add(luisa);
+            context.usuarios.Add(sandra);
+            context.usuarios.Add(eduardo);            
+            context.usuarios.Add(ana);
+            #endregion
+
+            #endregion
+
+            #region indicadores usuarios
+            
             #endregion
 
         }

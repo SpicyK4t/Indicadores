@@ -35,7 +35,7 @@ namespace ProyectoIndicadores.Models
 
         
 
-        public ICollection<Aplica> aplica_en { get; set; }
+        public virtual ICollection<Aplica> aplica_en { get; set; }
 
         public Indicador()
         {

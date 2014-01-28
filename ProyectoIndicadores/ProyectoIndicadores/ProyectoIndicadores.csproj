@@ -131,6 +131,7 @@
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\AdminController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\MisIndicadoresController.cs" />
     <Compile Include="Forms\FormularioIngreso.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -142,6 +143,7 @@
     <Compile Include="Models\IndicadoresContext.cs" />
     <Compile Include="Models\Sector.cs" />
     <Compile Include="Models\Usuario.cs" />
+    <Compile Include="Models\VistaIndicadorArea.cs" />
     <Compile Include="Models\VistaProveedoresConsumidores.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -264,6 +266,10 @@
     <Content Include="Views\Admin\BorrarIndicador.cshtml" />
     <Content Include="Views\Admin\ListaUsuarios.cshtml" />
     <Content Include="Views\Admin\Proveedor.cshtml" />
+    <Content Include="Views\Admin\AnexarArea.cshtml" />
+    <Content Include="Views\Home\Captura.cshtml" />
+    <Content Include="Views\Home\VerIndicadoresArea.cshtml" />
+    <Content Include="Views\Home\SinPermisos.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

@@ -1,0 +1,28 @@
+﻿@model ProyectoIndicadores.Models.VistaIndicadorArea
+@{
+    ViewBag.Title = "AnexarArea";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Anexar Indicador a areas</h2>
+@using (Html.BeginForm())
+{
+    @Html.ValidationSummary(true)
+    <fieldset>
+        <legend>El indicador "@Model.nombre" se aplica en la siguientes areas:</legend>
+        @Html.HiddenFor( m => m.pk )
+        @Html.HiddenFor( m => m.nombre )
+
+        @Html.LabelFor( m => m.aplica_a ):<br />
+        @Html.ListBoxFor( m => m.aplica_a, Model.areas)
+        <br />
+        <p>
+            <input type="submit" value="aceptar" />
+        </p>
+    </fieldset>
+}
+
+<div>
+    @Html.ActionLink("Regresar a la lista", "ListaAreas", "Admin")
+</div>
+

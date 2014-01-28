@@ -1,0 +1,24 @@
+﻿@model IEnumerable<ProyectoIndicadores.Models.Aplica>
+@{
+    ViewBag.Title = "Captura";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<h1>&nbsp;</h1>
+<h5>@ViewBag.error</h5>
+@foreach (var data in Model)
+{
+    
+    using (Html.BeginForm())
+    {
+        <input type="hidden" name="id" value="@ViewBag.indid" />
+        
+        <label for="v">@data.area.nombre</label><span>:</span>
+        <input type="hidden" name="i" value="@data.pk" />
+        <input type="text" name="v" value="@data.valor"/> <span>&nbsp;</span>        
+        <input type="submit" value="guardar"/>
+        
+    }
+    <br />
+}
+        
+  

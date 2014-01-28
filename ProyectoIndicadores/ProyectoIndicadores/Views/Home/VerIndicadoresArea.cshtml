@@ -1,0 +1,61 @@
+﻿@model IEnumerable<ProyectoIndicadores.Models.Aplica>
+@{
+    ViewBag.Title = "VerIndicadoresArea";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>VerIndicadoresArea</h2>
+
+<h3>@ViewBag.area</h3>
+<table class="table  table-condensed">
+    <thead>        
+        <tr>
+            <th>Indicador</th>
+            <th>Meta</th>
+            <th>Valor</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var valor in Model)
+        {
+            if(!valor.indicador.menor_meta)
+            {
+                if(valor.indicador.meta <= valor.valor)
+                {
+                    <tr class="success">
+                        <td>@valor.indicador.nombre</td>
+                        <td>@valor.indicador.meta</td>
+                        <td>@valor.valor</td>
+                    </tr>
+                }
+                else
+                {
+                    <tr class="danger">
+                        <td>@valor.indicador.nombre</td>
+                        <td>@valor.indicador.meta</td>
+                        <td>@valor.valor</td>
+                    </tr>
+                }
+            }
+            else 
+            {
+                if(valor.indicador.meta >= valor.valor) 
+                {
+                    <tr class="success">
+                        <td>@valor.indicador.nombre</td>
+                        <td>@valor.indicador.meta</td>
+                        <td>@valor.valor</td>
+                    </tr>
+                }
+                else
+                {
+                    <tr class="danger">
+                        <td>@valor.indicador.nombre</td>
+                        <td>@valor.indicador.meta</td>
+                        <td>@valor.valor</td>
+                    </tr>
+                }
+            }
+        }
+    </tbody>
+</table>

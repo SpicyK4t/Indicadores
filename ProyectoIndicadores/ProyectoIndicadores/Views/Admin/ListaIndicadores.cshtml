@@ -24,6 +24,9 @@
         <th>
             Proveedor:
         </th>
+        <th>
+            Areas:
+        </th>
         <th></th>
     </tr>
 
@@ -42,6 +45,17 @@
             @Html.DisplayFor(modelItem => item.proveedor.nombre_usuario)
         </td>
         <td>
+            <ul>
+            @foreach (var area in item.aplica_en.ToList())
+            {
+                <li>
+                    @area.area.nombre
+                </li>    
+            }
+            </ul>
+        </td>
+        <td>
+            @Html.ActionLink("Enrolar Area", "AnexarArea", new { id = item.pk }, "") |
             @Html.ActionLink("Editar", "EditarIndicador", "Admin", new { id=item.pk }, "") |
             @Html.ActionLink("Detalles", "Detallesindicador", "Admin", new { id=item.pk }, "") |
             @Html.ActionLink("Borrar", "BorrarIndicador", "Admin", new { id=item.pk }, "")

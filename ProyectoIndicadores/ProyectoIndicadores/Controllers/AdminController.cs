@@ -8,17 +8,20 @@ using System.Web;
 using System.Web.Mvc;
 using System.Web.UI;
 
+using System.Data.Entity;
+
 namespace ProyectoIndicadores.Controllers
 {
     public class AdminController : Controller
-    {                
-        //
-        // GET: /Admin/
-        
-        // Dashboard Admin
+    {
+        //private IndicadoresContext bd = new IndicadoresContext();
         public ActionResult Index()
         {
-            return View();
+            var usuario = new IndicadoresContext().usuarios.FirstOrDefault(m => m.nombre_usuario == User.Identity.Name);
+            if (usuario.is_admin)
+                return View();
+            else
+                return RedirectToAction("SinPermisos", "Home");
         }
 
         #region Manejo de Usuarios
@@ -340,7 +343,7 @@ namespace ProyectoIndicadores.Controllers
 
         #endregion
 
-
+        
         #endregion
 
         #region Manejo de Indicadores
@@ -442,9 +445,72 @@ namespace ProyectoIndicadores.Controllers
 
         #endregion
 
+        #region EnrolarArea
+
+        public ActionResult AnexarArea(int id = 0)
+        {
+            var db = new IndicadoresContext();
+            Indicador indicador = db.indicadores.Find(id);
+            if (indicador == null)
+                return HttpNotFound();
+            IList<Area> areas = db.areas.ToList();
+
+            var modelo = new VistaIndicadorArea();
+            modelo.pk = indicador.pk;
+            modelo.nombre = indicador.nombre;
+
+            //modelo.aplica_a = indicador.aplica_en.Select(x => x.area.pk);
+            modelo.aplica_a = db.indicadores_areas.Where(m => m.indicador_id == indicador.pk).Select(m => m.area_id);
+            modelo.areas = areas
+                .Select(x => new SelectListItem
+                {
+                    Value = x.pk.ToString(),
+                    Text = x.nombre,
+                })
+                .ToList();
+
+
+            
+
+            return View(modelo);
+        }
+    
+        [HttpPost]
+        public ActionResult AnexarArea(VistaIndicadorArea modelo)
+        {
+            using (var db = new IndicadoresContext())
+            {
+                Indicador indicador = db.indicadores.Find(modelo.pk);
+                if (modelo.aplica_a == null) foreach (var aplica in indicador.aplica_en.ToList()) indicador.aplica_en.Remove(aplica);
+                else
+                {
+                    foreach (var item in indicador.aplica_en.ToList()) { db.indicadores_areas.Remove(item); }
+                    db.SaveChanges();
+                    foreach (var area_pk in modelo.aplica_a)
+                        if (indicador.aplica_en.Where(m => m.area_id == area_pk).Count() == 0)
+                        {
+                            indicador.aplica_en.Add(new Aplica()
+                            {
+                                area = db.areas.Find(area_pk),
+                                valor = null,
+                                area_id = area_pk,
+                                indicador = indicador,
+                                indicador_id = indicador.pk
+                            });
+                        }
+
+                    db.SaveChanges();
+                }
+            }
+
+            return RedirectToAction("ListaIndicadores", "Admin");
+        }
+
         #endregion
 
+        #endregion
 
+       
         public MultiSelectList ListaDeConsumo()
         {
             return ListaDeConsumo(null);

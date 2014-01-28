@@ -36,6 +36,7 @@
             @Html.DisplayFor(modelItem => item.sector.nombre)
         </td>
         <td>
+            @Html.ActionLink("Indicadores", "VerIndicadoresArea", "Home", new { id=item.pk }, null)|
             @Html.ActionLink("Editar", "EditarArea", new { id=item.pk }) |
             @Html.ActionLink("Detalles", "DetallesArea", new { id=item.pk }) |
             @Html.ActionLink("Borrar", "BorrarArea", new { id=item.pk })

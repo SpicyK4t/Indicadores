@@ -15,11 +15,13 @@ namespace ProyectoIndicadores.Models
 
         [Required]
         [Display(Name = "Area")]
-        public Area area { get; set; }
+        public int area_id { get; set; }
+        [ForeignKey("area_id")]
+        public virtual Area area { get; set; }
 
         [Required]
         [Display(Name = "Indicador")]
-        public int? indicador_id { get; set; }
+        public int indicador_id { get; set; }
         [ForeignKey("indicador_id")]
         public virtual Indicador indicador { get; set; }
 

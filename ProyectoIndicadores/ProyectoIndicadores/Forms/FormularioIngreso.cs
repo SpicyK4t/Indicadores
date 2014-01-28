@@ -11,7 +11,7 @@ namespace ProyectoIndicadores.Forms
         [Display(Name="Usuario")]
         [Required(ErrorMessage="Falta el Usuario")]
         [DataType(DataType.Text)]
-        [StringLength(40, MinimumLength=5, ErrorMessage="Cantidad de carácteres no valida")]
+        [StringLength(40, MinimumLength=4, ErrorMessage="Cantidad de carácteres no valida")]
         public string usuario     { get; set; }
 
         [Display(Name="Contraseña")]

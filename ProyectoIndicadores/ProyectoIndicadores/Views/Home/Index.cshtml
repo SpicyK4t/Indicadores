@@ -1,6 +1,11 @@
-﻿@{
+﻿@model IEnumerable<ProyectoIndicadores.Models.Indicador>
+@{
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Hello Worlds!!!</h2>
+<h2>Mis Indicadores</h2>
+@foreach (var item in Model)
+{
+    <a href="/Home/Captura/@item.pk">@item.nombre</a> <br />
+}
