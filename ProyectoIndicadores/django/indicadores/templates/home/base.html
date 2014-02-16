@@ -1,0 +1,64 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html lang="es">
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+		<title>SIC - Sistema de Indicadores de Calidad</title>
+		<!--[if lt IE 7]>
+			<script src="http://ie7-js.googlecode.com/svn/version/2.1(beta4)/IE7.js"></script>
+		<![endif]-->
+		<!--[if lt IE 8]>
+			<script src="http://ie7-js.googlecode.com/svn/version/2.1(beta4)/IE8.js"></script>
+		<![endif]-->
+		<!--[if lt IE 9]>
+			<script src="http://ie7-js.googlecode.com/svn/version/2.1(beta4)/IE9.js"></script>
+		<![endif]-->
+		<link href="{% static 'home/css/foundation.css'%}" rel="stylesheet" type="text/css">
+		<link href="{% static 'home/css/normalize.css'%}" rel="stylesheet" type="text/css">
+	</head>
+	<body>
+		<header>
+			<nav class="top-bar" data-topbar>
+  				<ul class="title-area">
+    				<li class="name">
+      					<h1><a href="#">My Site</a></h1>
+    				</li>
+    				<li class="toggle-topbar menu-icon"><a href="#">Menu</a></li>
+  				</ul>
+
+  				<section class="top-bar-section">
+	    			<!-- Right Nav Section -->
+	    			<ul class="right">
+	      				<li class="active"><a href="#">Right Button Active</a></li>
+	      				<li class="has-dropdown">
+	        				<a href="#">Right Button with Dropdown</a>
+	        				<ul class="dropdown">
+	          					<li><a href="#">First link in dropdown</a></li>
+	        				</ul>
+	      				</li>
+	    			</ul>
+
+	    			<!-- Left Nav Section -->
+	    			<ul class="left">
+	      				<li><a href="#">Left Nav Button</a></li>
+	    			</ul>
+  				</section>
+			</nav>
+		</header>
+
+		<section id="section">
+			{% block contenido %}
+			{% endblock %}
+		</section>
+
+		<footer>
+		</footer>
+
+		<script src="{% static 'home/vendor/js/jquery.js'%}"></script>
+  		<script src="{% static 'home/js/foundation.min.js'%}"></script>
+  		<script>
+  		  $(document).foundation();
+  		</script>
+	</body>
+</html>
