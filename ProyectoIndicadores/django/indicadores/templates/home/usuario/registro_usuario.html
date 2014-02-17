@@ -1,0 +1,99 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html lang="es">
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+		<title>SIC - Sistema de Indicadores de Calidad</title>
+		<!--[if lt IE 7]>
+			<script src="http://ie7-js.googlecode.com/svn/version/2.1(beta4)/IE7.js"></script>
+		<![endif]-->
+		<!--[if lt IE 8]>
+			<script src="http://ie7-js.googlecode.com/svn/version/2.1(beta4)/IE8.js"></script>
+		<![endif]-->
+		<!--[if lt IE 9]>
+			<script src="http://ie7-js.googlecode.com/svn/version/2.1(beta4)/IE9.js"></script>
+		<![endif]-->
+		<link href="{% static 'home/css/foundation.css' %}" rel="stylesheet" type="text/css">
+		<link href="{% static 'home/css/normalize.css' %}" rel="stylesheet" type="text/css">
+		<link href="{% static 'home/css/app.css' %}" rel="stylesheet" type="text/css">
+	</head>
+	<body>
+		<header>
+			<nav class="top-bar" data-topbar>
+  				<ul class="title-area">
+    				<li class="name">
+      					<h1><a href="#">SIC</a></h1>
+    				</li>    				
+  				</ul>  				
+			</nav>
+		</header>
+		<br />
+		<div class="contenido">
+		<div class="row">
+			<h3>Registro de Usuario</h3>
+			{% if errores %}
+				<h5>Erorres:</h5>
+				<ul>
+					{% for error in errores %}
+						<li>{{ error }}</li>
+					{% endfor %}
+				</ul>
+			{% endif %}	
+		</div>		
+		<div class="row">
+			<form action="" method="post"> {% csrf_token %}		
+				<div class="small-7">
+					<div class="row">
+						<div class="small-12 columns">
+							<input name="nombre" type="text" placeholder="Nombre" required autofocus/>
+						</div>
+					</div>
+				</div>
+				
+				<div class="small-7">
+					<div class="row">
+						<div class="small-12 columns">
+							<input name="apellido" type="text" placeholder="Apellido" required/>
+						</div>
+					</div>
+				</div>
+				
+				<div class="small-7">
+					<div class="row collapse">
+						<div class="small-6 columns">
+							<input name="username" type="text" placeholder="Correo" required />
+						</div>
+						<div class="small-6 columns">
+							<span class="postfix">@udec.edu.mx</span>
+						</div>
+					</div>
+				</div>
+
+				<div class="small-7">
+					<div class="row">
+						<div class="small-12 columns">
+							<input name="password" type="password" placeholder="Contraseña" required/>
+						</div>
+					</div>
+				</div>
+
+				<div class="small-7">
+					<div class="row">
+						<div class="small-6 columns right">
+							<button type="submit" class="button [tiny small large] right">Registrar</button>
+						</div>						
+					</div>
+				</div>								
+			</form>	
+		</div>		
+		</div>	
+		<footer>
+			<hr />
+            <div class="row">
+                <p>Universidad de Celaya Carretera Panamericana km. 269 Col. Rancho Pinto,Celaya, Guanajuato, México C.P. 38080. 
+        	    <br />Tel: +52(461)6139099 Fax: (461)6139600 </p>
+            </div>
+		</footer>
+	</body>
+</html>

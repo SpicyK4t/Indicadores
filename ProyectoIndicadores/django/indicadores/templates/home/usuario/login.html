@@ -1,0 +1,37 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html lang="es">
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+		<title>SIC - Sistema de Indicadores de Calidad</title>
+		<!--[if lt IE 7]>
+			<script src="http://ie7-js.googlecode.com/svn/version/2.1(beta4)/IE7.js"></script>
+		<![endif]-->
+		<!--[if lt IE 8]>
+			<script src="http://ie7-js.googlecode.com/svn/version/2.1(beta4)/IE8.js"></script>
+		<![endif]-->
+		<!--[if lt IE 9]>
+			<script src="http://ie7-js.googlecode.com/svn/version/2.1(beta4)/IE9.js"></script>
+		<![endif]-->
+		<link href="{% static 'home/css/foundation.css' %}" rel="stylesheet" type="text/css">
+		<link href="{% static 'home/css/normalize.css' %}" rel="stylesheet" type="text/css">
+		<link href="{% static 'home/css/app.css' %}" rel="stylesheet" type="text/css">
+	</head>
+	<body>
+		<div class="row">
+			<div class="medium-4 medium-centered columns">
+				<form method="post" action=""> {% csrf_token %}
+					<fieldset class="panel clearfix">
+						<label for="usuario">Usuario:</label>
+						<input type="text" id="usuario" name="usuario" autofocus required/> 
+						<label for="password">Contraseña</label>
+						<input type="password" id="password" name="password" required/>
+						<button type="submit" class="button [tiny small large]">Ingresar</button> 
+						<a href="/registro/">Registrate Ya! </a>
+					</fieldset>
+				</form>
+			</div>			
+		</div>
+	</body>
+</html>
