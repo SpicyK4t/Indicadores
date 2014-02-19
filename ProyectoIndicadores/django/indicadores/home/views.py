@@ -62,10 +62,25 @@ def dashboard(request):
 		return HttpResponseRedirect('/login/')
 
 #############################################
+###### Areas ################################
+#############################################
 
 def nueva_area(request):
+	if request.method == 'POST':
+		 return HttpResponseRedirect('/dashboard/')
 	return render(request, 'home/area/nuevo.html')
-def editar_area(request):
+def editar_area(request, pk):
 	return render(request, 'home/area/nuevo.html')
-def borrar_area(request):
+def borrar_area(request, pk):
 	return render(request, 'home/area/nuevo.html')	
+
+##############################################
+###### Sector ################################
+##############################################
+
+def nuevo_sector(request):
+	return render(request, 'home/sector/nuevo.html')
+def editar_sector(request, pk):
+	return render(request, 'home/sector/nuevo.html')
+def borrar_sector(request, pk):
+	return render(request, 'home/sector/nuevo.hmtl')

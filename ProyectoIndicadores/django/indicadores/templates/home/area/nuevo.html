@@ -1,5 +1,23 @@
 {% extends "home/base.html" %}
-
 {% block contenido %}
-	<h2>Nueva Area</h2>
+	<form method="post" action=""> {% csrf_token %}
+		<fieldset>
+			<legend>Area</legend>
+			<div class="widget">
+				{% for field in formulario %}
+					{% if fields.errors %}
+						<label class="label">{{ field.label }}</label>
+						{{ field }}
+					{% else %}
+						<label class="label">{{ field.label }}</label>
+						{{ field }}
+						{% if field.help_text %}
+							{{ field.help_text }}
+						{% endif %}
+					{% endif %}
+				{% endfor %}
+				<input type="submit" value="Guardar">
+			</div>
+		</fieldset>
+	</form>
 {% endblock %}
