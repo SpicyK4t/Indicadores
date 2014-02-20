@@ -1,8 +1,11 @@
-from django.shortcuts import render
+from django.shortcuts import render, get_object_or_404
 from django.contrib.auth import authenticate, login as auth_login, logout as auth_logout
 from django.contrib.auth.models import User as AuthUser
 from django.http import HttpResponseRedirect
 from django.db import IntegrityError
+
+from home.models import Sector, Area
+from home.forms import SectorForm, AreaForm
 
 def login(request):
 	if request.method == 'POST':
@@ -78,9 +81,41 @@ def borrar_area(request, pk):
 ###### Sector ################################
 ##############################################
 
+def lista_sector(request):
+	if request.user.is_authenticated() and request.user.is_active:
+		sectores = Sector.objects.all()
+
+		return render(request, 'home/sector/index.html', {"sectores":sectores})
+
 def nuevo_sector(request):
-	return render(request, 'home/sector/nuevo.html')
+	if request.user.is_authenticated() and request.user.is_active:
+		if request.method == 'POST':
+			formulario = SectorForm(request.POST)
+			if formulario.is_valid():
+				sector = formulario.save(commit=False)
+				sector.save()
+				return HttpResponseRedirect("/sector/")
+		else:
+			formulario = SectorForm()
+		return render(request, 'home/formulario_nuevo_editar.html', {"formulario":formulario})
+	else:
+		return HttpResponseRedirect('/login/')
+
 def editar_sector(request, pk):
-	return render(request, 'home/sector/nuevo.html')
+	if request.user.is_authenticated() and request.user.is_active:
+		sector = get_object_or_404(Sector, id = pk)
+		if request.method == 'POST':
+			formulario = SectorForm(request.POST, instance=sector)
+			if formulario.is_valid():
+				formulario.save()
+				return HttpResponseRedirect("/sector/")
+		else:
+			formulario = SectorForm(instance=sector)
+		return render(request, 'home/formulario_nuevo_editar.html', {"formulario":formulario})	
+	
 def borrar_sector(request, pk):
-	return render(request, 'home/sector/nuevo.hmtl')
+	if request.user.is_authenticated() and request.user.is_active:
+		sector = get_object_or_404(Sector, id = pk)
+		sector.delete()
+		return HttpResponseRedirect("/sector")
+	return HttpResponseRedirect("/login/")

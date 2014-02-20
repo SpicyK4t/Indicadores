@@ -24,7 +24,8 @@ urlpatterns = patterns('',
     url(r'^$', views.dashboard, name="home"),
 
     ## Sector ##
-    url(r'^sector/nuevo/', views.nuevo_sector, name="nuevo_sector"),
+    url(r'^sector/$', views.lista_sector, name="lista_sector"),
+    url(r'^sector/nuevo/$', views.nuevo_sector, name="nuevo_sector"),
     url(r'^sector/(?P<pk>[0-9]+)/editar/$', views.editar_sector, name="editar_sector"),
     url(r'^sector/(?P<pk>[0-9]+)/borrar/$', views.borrar_sector, name="borrar_sector"),
 

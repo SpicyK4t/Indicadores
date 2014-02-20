@@ -1,0 +1,40 @@
+{% extends "home/base.html" %}
+{% block contenido %}
+	<div class="row">
+		<form method="post" action=""> {% csrf_token %}
+			<div class="small-12 medium-10">
+				{% for field in formulario %}
+					{% if field.errors %}
+						<div class="small-12 medium-10">
+							<div class="small-12 medium-10">
+								<label class="error">{{ field.label }} 
+									{{ field }}
+								</label>
+								<small class="error">
+									{% for error in field.errors %}
+										{{ error }}
+									{% endfor %}
+								</small>						
+							</div>
+						</div>						
+					{% else %}
+						<div class="small-12 medium-10">
+							<div class="small-12 medium-10">
+								<label>{{ field.label }}
+									{{ field }}
+								</label>
+							</div>														
+						</div>
+						{% if field.help_text %}
+							{{ field.help_text }}
+						{% endif %}
+					{% endif %}
+				{% endfor %}
+			</div>
+			<br />
+			<div class="small-7">
+				<button type="submit"> Guardar</button>							
+			</div>
+		</form>
+	</div>
+{% endblock %}
