@@ -3,7 +3,6 @@ from django.contrib.auth import authenticate, login as auth_login, logout as aut
 from django.contrib.auth.models import User as AuthUser
 from django.http import HttpResponseRedirect
 from django.db import IntegrityError
-
 from home.models import Sector, Area
 from home.forms import SectorForm, AreaForm
 
@@ -68,14 +67,45 @@ def dashboard(request):
 ###### Areas ################################
 #############################################
 
+def lista_area(request):
+	if request.user.is_authenticated() and request.user.is_active:
+		areas = Area.objects.all()
+		return render(request, 'home/area/index.html', {"areas":areas})
+	else:
+		return HttpResponseRedirect('/login/')
 def nueva_area(request):
-	if request.method == 'POST':
-		 return HttpResponseRedirect('/dashboard/')
-	return render(request, 'home/area/nuevo.html')
+	if request.user.is_authenticated() and request.user.is_active:
+		if request.method == 'POST':
+			formulario = AreaForm(request.POST)
+			if formulario.is_valid():
+				area = formulario.save(commit=False)
+				area.save()
+				return HttpResponseRedirect('/area/')
+		else:
+			formulario = AreaForm()
+		return render(request, 'home/formulario_nuevo_editar.html', {"formulario":formulario})
+	else:
+		return HttpResponseRedirect('/login/')
 def editar_area(request, pk):
-	return render(request, 'home/area/nuevo.html')
+	if request.user.is_authenticated() and request.user.is_active:
+		area = get_object_or_404(Area, id = pk)
+		if request.method == 'POST':
+			formulario = AreaForm(request.POST, instance=area)
+			if formulario.is_valid():
+				formulario.save()
+				return HttpResponseRedirect('/area/')
+		else:
+			formulario = AreaForm(instance=area)
+		return render(request, 'home/formulario_nuevo_editar.html', {'formulario':formulario})
+	else:
+		return HttpResponseRedirect('/login/')
 def borrar_area(request, pk):
-	return render(request, 'home/area/nuevo.html')	
+	if request.user.is_authenticated() and request.user.is_active:
+		area = get_object_or_404(Area, id = pk)
+		area.delete()
+		return HttpResponseRedirect('/area/')
+	else:
+		return HttpResponseRedirect('/login/')
 
 ##############################################
 ###### Sector ################################
@@ -84,9 +114,9 @@ def borrar_area(request, pk):
 def lista_sector(request):
 	if request.user.is_authenticated() and request.user.is_active:
 		sectores = Sector.objects.all()
-
 		return render(request, 'home/sector/index.html', {"sectores":sectores})
-
+	else:
+		return HttpResponseRedirect('/login/')
 def nuevo_sector(request):
 	if request.user.is_authenticated() and request.user.is_active:
 		if request.method == 'POST':
@@ -100,7 +130,6 @@ def nuevo_sector(request):
 		return render(request, 'home/formulario_nuevo_editar.html', {"formulario":formulario})
 	else:
 		return HttpResponseRedirect('/login/')
-
 def editar_sector(request, pk):
 	if request.user.is_authenticated() and request.user.is_active:
 		sector = get_object_or_404(Sector, id = pk)
@@ -112,10 +141,12 @@ def editar_sector(request, pk):
 		else:
 			formulario = SectorForm(instance=sector)
 		return render(request, 'home/formulario_nuevo_editar.html', {"formulario":formulario})	
-	
+	else:
+		return HttpResponseRedirect('/login/')
 def borrar_sector(request, pk):
 	if request.user.is_authenticated() and request.user.is_active:
 		sector = get_object_or_404(Sector, id = pk)
 		sector.delete()
 		return HttpResponseRedirect("/sector")
-	return HttpResponseRedirect("/login/")
+	else:
+		return HttpResponseRedirect("/login/")

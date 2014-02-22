@@ -1,8 +1,7 @@
 from django.forms import ModelForm, CharField, Textarea
 from home.models import Sector, Area, Indicador
 
-class SectorForm(ModelForm):
-	#nombre = CharField(error_messages={'required':'Campo requerido'})	
+class SectorForm(ModelForm):	
 	class Meta:
 		model = Sector
 
@@ -15,4 +14,15 @@ class SectorForm(ModelForm):
 class AreaForm(ModelForm):
 	class Meta:
 		model = Area
+
+		error_message =  {
+			'nombre' : {
+				'required' : "Campo requerido",
+			},
+
+			'sector' : {
+				'required' : 'Campo requerido'
+			}
+
+		}
 

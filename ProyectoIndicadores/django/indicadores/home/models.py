@@ -23,6 +23,9 @@ class Area(models.Model):
 	descripcion 	= models.TextField(blank=True, null=True)
 	sector      	= models.ForeignKey('Sector')
 
+	def __unicode__(self):
+		return self.nombre
+
 class PerfilUsuario(models.Model):
 	usuario 		= models.OneToOneField(User)
 	admin			= models.BooleanField()

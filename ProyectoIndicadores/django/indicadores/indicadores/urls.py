@@ -30,6 +30,7 @@ urlpatterns = patterns('',
     url(r'^sector/(?P<pk>[0-9]+)/borrar/$', views.borrar_sector, name="borrar_sector"),
 
     ## Area ##
+    url(r'^area/$', views.lista_area, name = "lista_area"),
     url(r'^area/nueva/' , views.nueva_area, name="nueva_area"),
     url(r'^area/(?P<pk>[0-9]+)/editar/$', views.editar_area, name="editar_area"),    
     url(r'^area/(?P<pk>[0-9]+)/borrar/$', views.borrar_area, name="borrar_area"),
