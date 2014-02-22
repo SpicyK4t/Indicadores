@@ -1,0 +1,31 @@
+{% extends "home/base.html" %}
+{% block contenido %}
+<div class="row">
+	<div class="small-12 medium-10">
+		<a href="/usuario/nuevo/" class="button" >Nuevo Usuario </a>
+		<table class="small-12 medium-10">
+			<thead>
+				<tr>
+					<th>Nombre de Usuario</th>
+					<th>Correo</th>
+					<th>Es administrador</th>					
+					<th>&nbsp;</th>
+				</tr>				
+			</thead>
+			<tbody>
+				{% for usuario in usuarios %}
+					<tr>
+						<td>{{ usuario }}</td>
+						<td>{{ usuario.usuario.email }} </td>
+						<td>{{ usuario.admin }} </td>
+						<td class="right">
+							<a href="/usuario/{{ usuario.id }}/editar">Edtiar</a> |
+							<a href="/usuario/{{ usuario.id }}/borrar">Borrar</a>
+						</td>
+					</tr>
+				{% endfor %}
+			</tbody>
+		</table>
+	</div>
+</div>
+{% endblock %}

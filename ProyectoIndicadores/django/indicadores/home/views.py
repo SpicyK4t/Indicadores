@@ -3,8 +3,8 @@ from django.contrib.auth import authenticate, login as auth_login, logout as aut
 from django.contrib.auth.models import User as AuthUser
 from django.http import HttpResponseRedirect
 from django.db import IntegrityError
-from home.models import Sector, Area
-from home.forms import SectorForm, AreaForm
+from home.models import Sector, Area, PerfilUsuario
+from home.forms import SectorForm, AreaForm, PerfilUsuarioForm
 
 def login(request):
 	if request.method == 'POST':
@@ -150,3 +150,28 @@ def borrar_sector(request, pk):
 		return HttpResponseRedirect("/sector")
 	else:
 		return HttpResponseRedirect("/login/")
+
+##############################################
+####### Usuario ##############################
+##############################################
+
+def lista_usuario(request):
+	if request.user.is_authenticated() and request.user.is_active:
+		usuarios = PerfilUsuario.objects.all()
+		return render(request, 'home/usuario/index.html', {"usuarios":usuarios})
+	else:
+		return HttpResponseRedirect('/login/')
+
+def nuevo_usuario(request):
+	if request.user.is_authenticated() and request.user.is_active:
+		if request.method == 'POST':
+			formulario = PerfilUsuarioForm(request.POST)
+			if formulario.is_valid():
+				usuario = formulario.save(commit=False)
+				usuario.save()
+				return HttpResponseRedirect("/usuario/")
+		else:
+			formulario = PerfilUsuarioForm()
+		return render(request, 'home/formulario_nuevo_editar.html', {"formulario":formulario})
+	else:
+		return HttpResponseRedirect('/login/')

@@ -1,5 +1,5 @@
 from django.forms import ModelForm, CharField, Textarea
-from home.models import Sector, Area, Indicador
+from home.models import Sector, Area, Indicador, PerfilUsuario
 
 class SectorForm(ModelForm):	
 	class Meta:
@@ -26,3 +26,12 @@ class AreaForm(ModelForm):
 
 		}
 
+class PerfilUsuarioForm(ModelForm):
+	class Meta:
+		model = PerfilUsuario
+
+		error_message = {
+			'usuario' : {
+				'required' : "Campo requerido"
+			},
+		}

@@ -31,6 +31,9 @@ class PerfilUsuario(models.Model):
 	admin			= models.BooleanField()
 	consume 		= models.ManyToManyField('Area')
 
+	def __unicode__(self):
+		return self.usuario.username
+
 class Indicador_Area(models.Model):
 	indicador    	= models.ForeignKey('Indicador', related_name='indicador_aplica')
 	area  		 	= models.ForeignKey('Area')

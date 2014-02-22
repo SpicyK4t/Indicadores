@@ -18,6 +18,11 @@ urlpatterns = patterns('',
     url(r'^login/$'		, views.login, name="login"),
     url(r'^logout/$'	, views.logout, name="logout"),
     url(r'^registro/$'	, views.registro_usuario, name="registro_usuario"),
+
+    ## Usuarios ##
+    url(r'^usuario/$', views.lista_usuario, name="lista_usuario" ),
+    url(r'^usuario/nuevo/$', views.nuevo_usuario, name="nuevo_usuario"),
+
     
     ## Dashboars ##
     url(r'^dashboard/'	, views.dashboard, name="dashboard"),
@@ -34,5 +39,7 @@ urlpatterns = patterns('',
     url(r'^area/nueva/' , views.nueva_area, name="nueva_area"),
     url(r'^area/(?P<pk>[0-9]+)/editar/$', views.editar_area, name="editar_area"),    
     url(r'^area/(?P<pk>[0-9]+)/borrar/$', views.borrar_area, name="borrar_area"),
+
+
 
 ) + static(settings.STATIC_URL, document_root = settings.STATIC_ROOT)
