@@ -1,0 +1,674 @@
+[
+ {
+  	"model" : "home.sector",
+  	"pk" : 1,
+  	"fields" : {
+	  	"nombre" : "Uis",
+	  	"descripcion" : "Primaria y preescolar"
+  	}
+ },
+ {
+  	"model" : "home.sector",
+  	"pk" : 2,
+  	"fields" : {
+	  	"nombre" : "Profesional",
+	  	"descripcion" : "Licenciaturas"
+  	}
+ },
+ {
+  	"model" : "home.sector",
+  	"pk" : 3,
+  	"fields" :{
+	  	"nombre" : "P. ejecutivos",
+	  	"descripcion" : "Programas ejecutivos (sabatinos)"
+  	}
+ },
+ {
+  	"model" : "home.sector",
+  	"pk": 4,
+  	"fields" : {
+	  	"nombre" : "Maestrias",
+	  	"descripcion" : ""
+  	}
+ },
+ {
+ 	"model" : "home.sector",
+ 	"pk" : 5,
+ 	"fields" : {
+ 		"nombre" : "Universidad Virtual",
+ 		"descripcion" : ""
+ 	}
+ },
+ {
+ 	"model" : "home.sector",
+ 	"pk" : 6,
+ 	"fields" : {
+ 		"nombre" : "Doctorados",
+ 		"descripcion" : ""
+ 	}
+ },
+ {
+ 	"model" : "home.sector",
+ 	"pk" : 7,
+ 	"fields" : {
+ 		"nombre" : "UNI Servicios Licenciaturas",
+ 		"descripcion" : ""
+ 	}
+ },
+ {
+ 	"model" : "home.area",
+ 	"pk" : 1,
+ 	"fields" : {
+ 		"nombre" : "Kinder",
+ 		"descripcion" : "",
+ 		"sector" : 1
+  	}
+ },
+ {
+ 	"model" : "home.area",
+ 	"pk" : 2,
+ 	"fields" : {
+ 		"nombre" : "Primaria",
+ 		"descripcion" : "",
+ 		"sector" : 1
+  	}
+ },
+ {
+ 	"model" : "home.area",
+ 	"pk" : 3,
+ 	"fields" : {
+ 		"nombre" : "Secundaria",
+ 		"descripcion" : "",
+ 		"sector" : 1
+  	}
+ },
+ {
+ 	"model" : "home.area",
+ 	"pk" : 4,
+ 	"fields" : {
+ 		"nombre" : "Preparatoria",
+ 		"descripcion" : "",
+ 		"sector" : 1
+  	}
+ },
+ {
+ 	"model" : "home.area",
+ 	"pk" : 5,
+ 	"fields" : {
+ 		"nombre" : "IDIOC",
+ 		"descripcion" : "",
+ 		"sector" : 1
+  	}
+ },
+ {
+ 	"model" : "home.area",
+ 	"pk" : 6,
+ 	"fields" : {
+ 		"nombre" : "ARQ",
+ 		"descripcion" : "",
+ 		"sector" : 2
+  	}
+ },
+ {
+ 	"model" : "home.area",
+ 	"pk" : 7,
+ 	"fields" : {
+ 		"nombre" : "DER",
+ 		"descripcion" : "",
+ 		"sector" : 2
+  	}
+ },
+ {
+ 	"model" : "home.area",
+ 	"pk" : 8,
+ 	"fields" : {
+ 		"nombre" : "LCC",
+ 		"descripcion" : "",
+ 		"sector" : 2
+  	}
+ },
+ {
+ 	"model" : "home.area",
+ 	"pk" : 9,
+ 	"fields" : {
+ 		"nombre" : "LDD",
+ 		"descripcion" : "",
+ 		"sector" : 2
+  	}
+ },
+ {
+ 	"model" : "home.area",
+ 	"pk" : 10,
+ 	"fields" : {
+ 		"nombre" : "MKT",
+ 		"descripcion" : "",
+ 		"sector" : 2
+  	}
+ },
+ {
+ 	"model" : "home.area",
+ 	"pk" : 11,
+ 	"fields" : {
+ 		"nombre" : "LAE",
+ 		"descripcion" : "",
+ 		"sector" : 2
+  	}
+ },
+ {
+ 	"model" : "home.area",
+ 	"pk" : 12,
+ 	"fields" : {
+ 		"nombre" : "LCI",
+ 		"descripcion" : "",
+ 		"sector" : 2
+  	}
+ },
+ {
+ 	"model" : "home.area",
+ 	"pk" : 13,
+ 	"fields" : {
+ 		"nombre" : "FLI",
+ 		"descripcion" : "",
+ 		"sector" : 2
+  	}
+ },
+ {
+ 	"model" : "home.area",
+ 	"pk" : 14,
+ 	"fields" : {
+ 		"nombre" : "IIA",
+ 		"descripcion" : "",
+ 		"sector" : 2
+  	}
+ },
+ {
+ 	"model" : "home.area",
+ 	"pk" : 15,
+ 	"fields" : {
+ 		"nombre" : "LID",
+ 		"descripcion" : "",
+ 		"sector" : 2
+  	}
+ },
+ {
+ 	"model" : "home.area",
+ 	"pk" : 16,
+ 	"fields" : {
+ 		"nombre" : "MEDIC",
+ 		"descripcion" : "",
+ 		"sector" : 2
+  	}
+ },
+ {
+ 	"model" : "home.area",
+ 	"pk" : 17,
+ 	"fields" : {
+ 		"nombre" : "PSIC",
+ 		"descripcion" : "",
+ 		"sector" : 2
+  	}
+ },
+ {
+ 	"model" : "home.area",
+ 	"pk" : 18,
+ 	"fields" : {
+ 		"nombre" : "LT",
+ 		"descripcion" : "",
+ 		"sector" : 2
+  	}
+ },
+ {
+ 	"model" : "home.area",
+ 	"pk" : 19,
+ 	"fields" : {
+ 		"nombre" : "LN",
+ 		"descripcion" : "",
+ 		"sector" : 2
+  	}
+ },
+ {
+ 	"model" : "home.area",
+ 	"pk" : 20,
+ 	"fields" : {
+ 		"nombre" : "LG",
+ 		"descripcion" : "",
+ 		"sector" : 2
+  	}
+ },
+ {
+ 	"model" : "home.area",
+ 	"pk" : 21,
+ 	"fields" : {
+ 		"nombre" : "LIB",
+ 		"descripcion" : "",
+ 		"sector" : 2
+  	}
+ },
+ {
+ 	"model" : "home.area",
+ 	"pk" : 22,
+ 	"fields" : {
+ 		"nombre" : "FNI",
+ 		"descripcion" : "",
+ 		"sector" : 3
+  	}
+ },
+ {
+ 	"model" : "home.area",
+ 	"pk" : 23,
+ 	"fields" : {
+ 		"nombre" : "IIAM",
+ 		"descripcion" : "",
+ 		"sector" : 3
+  	}
+ },
+ {
+ 	"model" : "home.area",
+ 	"pk" : 24,
+ 	"fields" : {
+ 		"nombre" : "FPH",
+ 		"descripcion" : "",
+ 		"sector" : 3
+  	}
+ },
+ {
+ 	"model" : "home.area",
+ 	"pk" : 25,
+ 	"fields" : {
+ 		"nombre" : "MDH",
+ 		"descripcion" : "",
+ 		"sector" : 4
+  	}
+ },
+ {
+ 	"model" : "home.area",
+ 	"pk" : 26,
+ 	"fields" : {
+ 		"nombre" : "FML",
+ 		"descripcion" : "",
+ 		"sector" : 4
+  	}
+ },
+ {
+ 	"model" : "home.area",
+ 	"pk" : 27,
+ 	"fields" : {
+ 		"nombre" : "MAE",
+ 		"descripcion" : "",
+ 		"sector" : 4
+  	}
+ },
+ {
+ 	"model" : "home.area",
+ 	"pk" : 28,
+ 	"fields" : {
+ 		"nombre" : "IASE",
+ 		"descripcion" : "",
+ 		"sector" : 4
+  	}
+ },
+ {
+ 	"model" : "home.area",
+ 	"pk" : 29,
+ 	"fields" : {
+ 		"nombre" : "MIC",
+ 		"descripcion" : "",
+ 		"sector" : 4
+  	}
+ },
+ {
+ 	"model" : "home.area",
+ 	"pk" : 30,
+ 	"fields" : {
+ 		"nombre" : "W-MCL",
+ 		"descripcion" : "",
+ 		"sector" : 5
+  	}
+ },
+ {
+ 	"model" : "home.area",
+ 	"pk" : 31,
+ 	"fields" : {
+ 		"nombre" : "W-MTI",
+ 		"descripcion" : "",
+ 		"sector" : 5
+  	}
+ },
+ {
+ 	"model" : "home.area",
+ 	"pk" : 32,
+ 	"fields" : {
+ 		"nombre" : "W-MEM",
+ 		"descripcion" : "",
+ 		"sector" : 5
+  	}
+ },
+ {
+ 	"model" : "home.area",
+ 	"pk" : 33,
+ 	"fields" : {
+ 		"nombre" : "DA",
+ 		"descripcion" : "",
+ 		"sector" : 6
+  	}
+ },
+ {
+ 	"model" : "home.area",
+ 	"pk" : 34,
+ 	"fields" : {
+ 		"nombre" : "DDH",
+ 		"descripcion" : "",
+ 		"sector" : 6
+  	}
+ },
+ {
+ 	"model" : "home.indicador",
+ 	"pk" : 1,
+ 	"fields" : {
+ 		"nombre" : "7. Tasa de eficiencia terminal por generación y área (%)",
+ 		"meta" : 80.0,
+ 		"i_s"  : 0.0,
+ 		"menor_igual" : "False"
+ 	}
+ },
+ {
+ 	"model" : "home.indicador",
+ 	"pk" : 2,
+ 	"fields" : {
+ 		"nombre" : "18. % de Titulados a 1 año de haber egresado",
+ 		"meta" : 80,
+ 		"i_s"  : 0,
+ 		"menor_igual" : "False"
+ 	}
+ },
+ {
+ 	"model" : "home.indicador",
+ 	"pk" : 3,
+ 	"fields" : {
+ 		"nombre" : "23. Promedio de egresados con trabajo a 1 año de haber egresado (%)",
+ 		"meta" : 80,
+ 		"i_s"  : 0,
+ 		"menor_igual" : "False"
+ 	}
+ },
+ {
+ 	"model" : "home.indicador",
+ 	"pk" : 4,
+ 	"fields" : {
+ 		"nombre" : "27. % Egresados de licenciatura que emprenden su negocio a un año de haber egresado",
+ 		"meta" : 30,
+ 		"i_s"  : 0,
+ 		"menor_igual" : "False"
+ 	}
+ },
+ {
+ 	"model" : "home.indicador",
+ 	"pk" : 5,
+ 	"fields" : {
+ 		"nombre" : "30. Evaluación de empleadores a los egresados de licenciatura",
+ 		"meta" : 9,
+ 		"i_s"  : 0,
+ 		"menor_igual" : "False"
+ 	}
+ },
+ {
+  "model" : "home.indicador",
+  "pk" : 6,
+  "fields" : {
+    "nombre" : "2. Tasa de deserción (%)",
+    "meta" : 5,
+    "i_s"  : 0,
+    "menor_igual" : "True"
+  }
+ },
+ {
+  "model" : "home.indicador",
+  "pk" : 7,
+  "fields" : {
+    "nombre" : "35. Efectividad del programa de tutorías (%)",
+    "meta" : 80,
+    "i_s"  : 0,
+    "menor_igual" : "False"
+  }
+ },
+ {
+  "model" : "home.indicador",
+  "pk" : 8,
+  "fields" : {
+    "nombre" : "73i.% alumnos con TOEIC aprobado al concluir sus estudios",
+    "meta" : 80,
+    "i_s"  : 0,
+    "menor_igual" : "False"
+  }
+ },
+ {
+  "model" : "home.indicador",
+  "pk" : 9,
+  "fields" : {
+    "nombre" : "81. Autoevaluación competencias (importancia)",
+    "meta" : 9,
+    "i_s"  : 0,
+    "menor_igual" : "False"
+  }
+ },
+ {
+  "model" : "home.indicador",
+  "pk" : 10,
+  "fields" : {
+    "nombre" : "82. Autoevaluación competencias (desempeño)",
+    "meta" : 9,
+    "i_s"  : 0,
+    "menor_igual" : "False"
+  }
+ },
+ {
+  "model" : "home.indicador",
+  "pk" : 11,
+  "fields" : {
+    "nombre" : "80. Nivel académico del área, percibido por los alumnos.",
+    "meta" : 9,
+    "i_s"  : 0,
+    "menor_igual" : "True"
+  }
+ },
+ {
+  "model" : "home.indicador",
+  "pk" : 12,
+  "fields" : {
+    "nombre" : "3. Promedio del Sistema de evaluación docente (SED)",
+    "meta" : 85,
+    "i_s"  : 0,
+    "menor_igual" : "False"
+  }
+ },
+ {
+  "model" : "home.indicador",
+  "pk" : 13,
+  "fields" : {
+    "nombre" : "8. Promedio de evaluación . MTX (Docente y Servicios)",
+    "meta" : 9,
+    "i_s"  : 0,
+    "menor_igual" : "False"
+  }
+ },
+ {
+  "model" : "home.indicador",
+  "pk" : 14,
+  "fields" : {
+    "nombre" : "4. Efectividad de la mejora del desempeño docente",
+    "meta" : 0,
+    "i_s"  : 0,
+    "menor_igual" : "False"
+  }
+ },
+ {
+  "model" : "home.indicador",
+  "pk" : 15,
+  "fields" : {
+    "nombre" : "(10-11).Porcentaje de HORAS -CURSO impartidas con docentes por grado superior al nivel donde enseña",
+    "meta" : 60,
+    "i_s"  : 0,
+    "menor_igual" : "False"
+  }
+ },
+ {
+  "model" : "home.indicador",
+  "pk" : 16,
+  "fields" : {
+    "nombre" : "(13) Porcentaje de profesores con experiencia docente universitaria de 5 años o más",
+    "meta" : 9,
+    "i_s"  : 0,
+    "menor_igual" : "True"
+  }
+ },
+ {
+  "model" : "home.indicador",
+  "pk" : 17,
+  "fields" : {
+    "nombre" : "(84) Porcentaje de profesores con experiencia laboral de 5 años o más",
+    "meta" : 60,
+    "i_s"  : 0,
+    "menor_igual" : "False"
+  }
+ },
+ {
+  "model" : "home.indicador",
+  "pk" : 18,
+  "fields" : {
+    "nombre" : "(19) Porcentaje de materias impartidas por profesores de tiempo completo",
+    "meta" : 40,
+    "i_s"  : 0,
+    "menor_igual" : "False"
+  }
+ },
+ {
+  "model" : "home.indicador",
+  "pk" : 19,
+  "fields" : {
+    "nombre" : "6. RVOES actualizados de acuerdo con el procedimiento y política institucional",
+    "meta" : 1,
+    "i_s"  : 0,
+    "menor_igual" : "False"
+  }
+ },
+ {
+  "model" : "home.indicador",
+  "pk" : 20,
+  "fields" : {
+    "nombre" : "74.% Alumnos con nivel satisfactorio CENEVAL) o ENLACE",
+    "meta" : 60,
+    "i_s"  : 0,
+    "menor_igual" : "False"
+  }
+ },
+ {
+  "model" : "home.indicador",
+  "pk" : 21,
+  "fields" : {
+    "nombre" : "75. Programas acreditados o certificados por instancias externas",
+    "meta" : 1,
+    "i_s"  : 0,
+    "menor_igual" : "True"
+  }
+ },
+ {
+  "model" : "home.indicador",
+  "pk" : 22,
+  "fields" : {
+    "nombre" : "i22. Porcentaje de participación por área en la Encuesta",
+    "meta" : 80,
+    "i_s"  : 0,
+    "menor_igual" : "False"
+  }
+ },
+ {
+  "model" : "home.indicador",
+  "pk" : 23,
+  "fields" : {
+    "nombre" : "57.Utilidad neta institucional y por programas",
+    "meta" : 0,
+    "i_s"  : 0,
+    "menor_igual" : "False"
+  }
+ },
+ {
+  "model" : "home.indicador",
+  "pk" : 24,
+  "fields" : {
+    "nombre" : "53. % de proyectos alcanzados",
+    "meta" : 80,
+    "i_s"  : 0,
+    "menor_igual" : "False"
+  }
+ },
+ {
+  "model" : "home.indicador",
+  "pk" : 25,
+  "fields" : {
+    "nombre" : "50. Evaluación de pares de los clientes internos",
+    "meta" : 9,
+    "i_s"  : 0,
+    "menor_igual" : "False"
+  }
+ },
+ {
+  "model" : "home.indicador",
+  "pk" : 26,
+  "fields" : {
+    "nombre" : "(60) porcentaje de cumplimiento en la entrega de Indicadores de Gestión",
+    "meta" : 95,
+    "i_s"  : 0,
+    "menor_igual" : "True"
+  }
+ },
+ {
+  "model" : "home.indicador",
+  "pk" : 27,
+  "fields" : {
+    "nombre" : "(69) Porcentaje de 'promotores netos'",
+    "meta" : 75,
+    "i_s"  : 0,
+    "menor_igual" : "False"
+  }
+ },
+ {
+  "model" : "home.indicador",
+  "pk" : 28,
+  "fields" : {
+    "nombre" : "50. % de Becas",
+    "meta" : 17,
+    "i_s"  : 0,
+    "menor_igual" : "True"
+  }
+ },
+ {
+  "model" : "home.indicador",
+  "pk" : 29,
+  "fields" : {
+    "nombre" : "33. % de alumnos en programas de internacionalización por áreas",
+    "meta" : 10,
+    "i_s"  : 0,
+    "menor_igual" : "False"
+  }
+ },
+ {
+  "model" : "home.indicador",
+  "pk" : 30,
+  "fields" : {
+    "nombre" : "88. Evaluación promedio en la satisfacción de los eventos de extensión universitaria",
+    "meta" : 9,
+    "i_s"  : 0,
+    "menor_igual" : "False"
+  }
+ },
+ {
+  "model" : "home.indicador",
+  "pk" : 31,
+  "fields" : {
+    "nombre" : "14. No. de publicaciones en la institución (al menos 1 por área)",
+    "meta" : 1,
+    "i_s"  : 0,
+    "menor_igual" : "False"
+  }
+ }
+]

@@ -20,26 +20,31 @@ urlpatterns = patterns('',
     url(r'^registro/$'	, views.registro_usuario, name="registro_usuario"),
 
     ## Usuarios ##
-    url(r'^usuario/$', views.lista_usuario, name="lista_usuario" ),
+    url(r'^usuario/$'   , views.lista_usuario, name="lista_usuario" ),
     url(r'^usuario/nuevo/$', views.nuevo_usuario, name="nuevo_usuario"),
 
-    
+
     ## Dashboars ##
-    url(r'^dashboard/'	, views.dashboard, name="dashboard"),
+    url(r'^dashboard/$'	, views.dashboard, name="dashboard"),
     url(r'^$', views.dashboard, name="home"),
 
     ## Sector ##
-    url(r'^sector/$', views.lista_sector, name="lista_sector"),
+    url(r'^sector/$'    , views.lista_sector, name="lista_sector"),
     url(r'^sector/nuevo/$', views.nuevo_sector, name="nuevo_sector"),
-    url(r'^sector/(?P<pk>[0-9]+)/editar/$', views.editar_sector, name="editar_sector"),
-    url(r'^sector/(?P<pk>[0-9]+)/borrar/$', views.borrar_sector, name="borrar_sector"),
+    url(r'^sector/(?P<id>[0-9]+)/editar/$', views.editar_sector, name="editar_sector"),
+    url(r'^sector/(?P<id>[0-9]+)/borrar/$', views.borrar_sector, name="borrar_sector"),
 
     ## Area ##
     url(r'^area/$', views.lista_area, name = "lista_area"),
     url(r'^area/nueva/' , views.nueva_area, name="nueva_area"),
-    url(r'^area/(?P<pk>[0-9]+)/editar/$', views.editar_area, name="editar_area"),    
-    url(r'^area/(?P<pk>[0-9]+)/borrar/$', views.borrar_area, name="borrar_area"),
+    url(r'^area/(?P<id>[0-9]+)/editar/$', views.editar_area, name="editar_area"),
+    url(r'^area/(?P<id>[0-9]+)/borrar/$', views.borrar_area, name="borrar_area"),
 
+    ## Indicador ##
+    url(r'^indicador/$', views.lista_indicador, name = "lista_indicador"),
+    url(r'^indicador/nuevo/', views.nuevo_indicador, name = "nuevo_indicador"),
+    url(r'^indicador/(?P<id>[0-9]+)/editar/$', views.editar_indicador, name = "editar_indicador"),
+    url(r'^indicador/(?P<id>[0-9]+)/borrar/$', views.borrar_indicador, name = "borrar_indicador"),
 
 
 ) + static(settings.STATIC_URL, document_root = settings.STATIC_ROOT)

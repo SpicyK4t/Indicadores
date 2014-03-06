@@ -30,18 +30,25 @@
   				<section class="top-bar-section">	    			
 	    			<!-- Left Nav Section -->
 	    			<ul class="left">
-	      				<li class="active"><a href="#">Admin</a></li>
+	    				{% if perfil.es_admin %}
 	      				<li class="has-dropdown">
-	        				<a href="#">Mis Indicadores</a>
-	        				<ul class="dropdown">
-	          					<li><a href="#">First link in dropdown</a></li>
-	        				</ul>
+	      					<a href="#">Admin</a>
+	      					<ul class="dropdown">
+	      						<li><a href="/sector/">Sector</a></li>
+	      						<li><a href="/indicador/">Indicador</a></li>
+	      						<li><a href="/area/">Area</a></li>
+	      						<li><a href="/usuario/">Usuario</a></li>
+	      					</ul>
+	      				</li>
+	      				{% endif %}
+	      				<li class="">
+	        				<a href="#">Mis Indicadores</a>	        				
 	      				</li>
 	    			</ul>
 	    			<!-- Right Nav Section -->
 	    			<ul class="right">
 	    				<li class="has-dropdown">
-	    					<a href="#">Bienvenido, Usuario</a>
+	    					<a href="#">Bienvenido, {{ perfil.usuario.username }}</a>
 	    					<ul class="dropdown">
 	    						<li class="divider"></li>
 	    						<li><a href="#">Cambiar contraseña</a></li>

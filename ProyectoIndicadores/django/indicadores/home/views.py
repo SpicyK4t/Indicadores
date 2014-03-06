@@ -3,8 +3,8 @@ from django.contrib.auth import authenticate, login as auth_login, logout as aut
 from django.contrib.auth.models import User as AuthUser
 from django.http import HttpResponseRedirect
 from django.db import IntegrityError
-from home.models import Sector, Area, PerfilUsuario
-from home.forms import SectorForm, AreaForm, PerfilUsuarioForm
+from home.models import Sector, Area, PerfilUsuario, Indicador
+from home.forms import SectorForm, AreaForm, PerfilUsuarioForm, IndicadorForm
 
 def login(request):
 	if request.method == 'POST':
@@ -35,7 +35,7 @@ def registro_usuario(request):
 		nombre 	 		  = request.POST['nombre']
 		apellido 		  = request.POST['apellido']
 		usuario  		  = request.POST['username']
-		password 		  = request.POST['password']		
+		password 		  = request.POST['password']
 		try:
 			user 			  = AuthUser.objects.create_user(usuario, email=usuario + "@udec.edu.mx", password=password)
 			user.first_name   = nombre
@@ -45,7 +45,7 @@ def registro_usuario(request):
 			user.save()
 			return HttpResponseRedirect('/login/')
 		except IntegrityError:
-			mssg.append("Usuario Duplicado")	
+			mssg.append("Usuario Duplicado")
 	else:
 		if request.user.is_authenticated():
 			if request.user.is_active:
@@ -55,26 +55,29 @@ def registro_usuario(request):
 	return render(request, 'home/usuario/registro_usuario.html', { "errores":mssg })
 
 #############################################
-
 def dashboard(request):
 	if request.user.is_authenticated():
 		if request.user.is_active:
-			return render(request, 'home/base.html')
+			perfil = PerfilUsuario.objects.get(usuario = request.user)
+			print perfil
+			return render(request, 'home/base.html', { "perfil":perfil })
 	else:
 		return HttpResponseRedirect('/login/')
-
 #############################################
 ###### Areas ################################
 #############################################
 
 def lista_area(request):
-	if request.user.is_authenticated() and request.user.is_active:
+	if request.user.is_authenticated() and request.user.is_active and PerfilUsuario.objects.get(usuario = request.user).admin == True:
+		perfil = PerfilUsuario.objects.get(usuario = request.user)
 		areas = Area.objects.all()
-		return render(request, 'home/area/index.html', {"areas":areas})
+		return render(request, 'home/area/index.html', {"areas":areas, "perfil":perfil })
 	else:
 		return HttpResponseRedirect('/login/')
+
 def nueva_area(request):
-	if request.user.is_authenticated() and request.user.is_active:
+	if request.user.is_authenticated() and request.user.is_active and PerfilUsuario.objects.get(usuario = request.user).admin == True:
+		perfil = PerfilUsuario.objects.get(usuario = request.user)
 		if request.method == 'POST':
 			formulario = AreaForm(request.POST)
 			if formulario.is_valid():
@@ -83,12 +86,14 @@ def nueva_area(request):
 				return HttpResponseRedirect('/area/')
 		else:
 			formulario = AreaForm()
-		return render(request, 'home/formulario_nuevo_editar.html', {"formulario":formulario})
+		return render(request, 'home/formulario_nuevo_editar.html', {"formulario":formulario, "perfil":perfil})
 	else:
 		return HttpResponseRedirect('/login/')
-def editar_area(request, pk):
-	if request.user.is_authenticated() and request.user.is_active:
-		area = get_object_or_404(Area, id = pk)
+
+def editar_area(request, id):
+	if request.user.is_authenticated() and request.user.is_active and PerfilUsuario.objects.get(usuario = request.user).admin == True:
+		area = get_object_or_404(Area, id = id)
+		perfil = PerfilUsuario.objects.get(usuario = request.user)
 		if request.method == 'POST':
 			formulario = AreaForm(request.POST, instance=area)
 			if formulario.is_valid():
@@ -96,29 +101,32 @@ def editar_area(request, pk):
 				return HttpResponseRedirect('/area/')
 		else:
 			formulario = AreaForm(instance=area)
-		return render(request, 'home/formulario_nuevo_editar.html', {'formulario':formulario})
+		return render(request, 'home/formulario_nuevo_editar.html', {'formulario':formulario, "perfil":perfil})
 	else:
 		return HttpResponseRedirect('/login/')
-def borrar_area(request, pk):
-	if request.user.is_authenticated() and request.user.is_active:
-		area = get_object_or_404(Area, id = pk)
+
+def borrar_area(request, id):
+	if request.user.is_authenticated() and request.user.is_active and PerfilUsuario.objects.get(usuario = request.user).admin == True:
+		area = get_object_or_404(Area, id = id)
 		area.delete()
 		return HttpResponseRedirect('/area/')
 	else:
 		return HttpResponseRedirect('/login/')
-
 ##############################################
 ###### Sector ################################
 ##############################################
 
 def lista_sector(request):
-	if request.user.is_authenticated() and request.user.is_active:
+	if request.user.is_authenticated() and request.user.is_active and PerfilUsuario.objects.get(usuario = request.user).admin == True:
 		sectores = Sector.objects.all()
-		return render(request, 'home/sector/index.html', {"sectores":sectores})
+		perfil = PerfilUsuario.objects.get(usuario = request.user)
+		return render(request, 'home/sector/index.html', {"sectores":sectores, "perfil":perfil})
 	else:
 		return HttpResponseRedirect('/login/')
+
 def nuevo_sector(request):
-	if request.user.is_authenticated() and request.user.is_active:
+	if request.user.is_authenticated() and request.user.is_active and PerfilUsuario.objects.get(usuario = request.user).admin == True:
+		perfil = PerfilUsuario.objects.get(usuario = request.user)
 		if request.method == 'POST':
 			formulario = SectorForm(request.POST)
 			if formulario.is_valid():
@@ -127,12 +135,14 @@ def nuevo_sector(request):
 				return HttpResponseRedirect("/sector/")
 		else:
 			formulario = SectorForm()
-		return render(request, 'home/formulario_nuevo_editar.html', {"formulario":formulario})
+		return render(request, 'home/formulario_nuevo_editar.html', {"formulario":formulario, "perfil":perfil})
 	else:
 		return HttpResponseRedirect('/login/')
-def editar_sector(request, pk):
-	if request.user.is_authenticated() and request.user.is_active:
+
+def editar_sector(request, id):
+	if request.user.is_authenticated() and request.user.is_active and PerfilUsuario.objects.get(usuario = request.user).admin == True:
 		sector = get_object_or_404(Sector, id = pk)
+		perfil = PerfilUsuario.objects.get(usuario = request.user)
 		if request.method == 'POST':
 			formulario = SectorForm(request.POST, instance=sector)
 			if formulario.is_valid():
@@ -140,38 +150,91 @@ def editar_sector(request, pk):
 				return HttpResponseRedirect("/sector/")
 		else:
 			formulario = SectorForm(instance=sector)
-		return render(request, 'home/formulario_nuevo_editar.html', {"formulario":formulario})	
+		return render(request, 'home/formulario_nuevo_editar.html', {"formulario":formulario, "perfil":perfil})
 	else:
 		return HttpResponseRedirect('/login/')
-def borrar_sector(request, pk):
-	if request.user.is_authenticated() and request.user.is_active:
-		sector = get_object_or_404(Sector, id = pk)
+
+def borrar_sector(request, id):
+	if request.user.is_authenticated() and request.user.is_active and PerfilUsuario.objects.get(usuario = request.user).admin == True:
+		sector = get_object_or_404(Sector, id = id)
 		sector.delete()
 		return HttpResponseRedirect("/sector")
 	else:
 		return HttpResponseRedirect("/login/")
-
 ##############################################
 ####### Usuario ##############################
 ##############################################
 
 def lista_usuario(request):
-	if request.user.is_authenticated() and request.user.is_active:
+	if request.user.is_authenticated() and request.user.is_active and PerfilUsuario.objects.get(usuario = request.user).admin == True:
+		perfil = PerfilUsuario.objects.get(usuario = request.user)
 		usuarios = PerfilUsuario.objects.all()
-		return render(request, 'home/usuario/index.html', {"usuarios":usuarios})
+		return render(request, 'home/usuario/index.html', {"usuarios":usuarios, "perfil":perfil})
 	else:
 		return HttpResponseRedirect('/login/')
 
 def nuevo_usuario(request):
-	if request.user.is_authenticated() and request.user.is_active:
+	if request.user.is_authenticated() and request.user.is_active and PerfilUsuario.objects.get(username = request.user.username).admin == True:
+		perfil = PerfilUsuario.objects.get(usuario = request.user)
 		if request.method == 'POST':
 			formulario = PerfilUsuarioForm(request.POST)
+			#formulario = UserForm(request.POST)
 			if formulario.is_valid():
 				usuario = formulario.save(commit=False)
 				usuario.save()
 				return HttpResponseRedirect("/usuario/")
 		else:
+			#formulario = UserForm()
 			formulario = PerfilUsuarioForm()
-		return render(request, 'home/formulario_nuevo_editar.html', {"formulario":formulario})
+		return render(request, 'home/formulario_nuevo_editar.html', {"formulario":formulario, "perfil":perfil})
 	else:
 		return HttpResponseRedirect('/login/')
+##############################################
+####### Indicador ############################
+##############################################
+
+def lista_indicador(request):
+	if request.user.is_authenticated() and request.user.is_active and PerfilUsuario.objects.get(usuario = request.user).admin == True:
+		perfil = PerfilUsuario.objects.get(usuario = request.user)
+		indicadores = Indicador.objects.all()
+		return render(request, 'home/indicador/index.html', {"indicadores":indicadores, "perfil":perfil})
+	else:
+		return HttpResponseRedirect('/login/')
+
+def nuevo_indicador(request):
+	if request.user.is_authenticated() and request.user.is_active and PerfilUsuario.objects.get(usuario = request.user).admin == True:
+		perfil = PerfilUsuario.objects.get(usuario = request.user)
+		if request.method == 'POST':
+			formulario = IndicadorForm(request.POST)
+			if formulario.is_valid():
+				indicador = formulario.save(commit=False)
+				indicador.save()
+				return HttpResponseRedirect('/Indicador/')
+		else:
+			formulario = IndicadorForm()
+		return render(request, 'home/formulario_nuevo_editar.html', {"formulario":formulario, "perfil":perfil})
+
+def editar_indicador(request, id):
+	if request.user.is_authenticated() and request.user.is_active and PerfilUsuario.objects.get(usuario = request.user).admin == True:
+		perfil = PerfilUsuario.objects.get(usuario = request.user)
+		indicador = get_object_or_404(Indicador, id = id)
+		if request.method == 'POST':
+			formulario = IndicadorForm(request.POST, instance = indicador)
+			if formulario.is_valid():
+				formulario.save()
+				return HttpResponseRedirect('/Indicador/')
+		else:
+			formulario = IndicadorForm(instance = indicador)
+		return render(request, 'home/formulario_nuevo_editar.html', {'formulario':formulario, "perfil":perfil})
+	else:
+		return HttpResponseRedirect('/login/')
+
+def borrar_indicador(request, id):
+	if request.user.is_authenticated() and request.user.is_active:# and PerfilUsuario.objects.get(usuario = request.user).admin == True:
+		indicador = get_object_or_404(Indicador, id = id)
+		indicador.delete()
+		return HttpResponseRedirect('/Indicador/')
+	else:
+		return  HttpResponseRedirect('/login/')
+##############################################
+#######
