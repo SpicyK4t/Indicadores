@@ -141,7 +141,7 @@ def nuevo_sector(request):
 
 def editar_sector(request, id):
 	if request.user.is_authenticated() and request.user.is_active and PerfilUsuario.objects.get(usuario = request.user).admin == True:
-		sector = get_object_or_404(Sector, id = pk)
+		sector = get_object_or_404(Sector, id = id)
 		perfil = PerfilUsuario.objects.get(usuario = request.user)
 		if request.method == 'POST':
 			formulario = SectorForm(request.POST, instance=sector)

@@ -1,27 +1,23 @@
 {% extends "home/base.html" %}
-{% block contenido %}
-<div class="row">
-	<div class="small-12 medium-10">
-		<a href="/sector/nuevo/" class="button" >Nuevo Sector </a>
-		<table class="small-12 medium-10">
-			<thead>
+{% block contenido %}	
+	<a href="/sector/nuevo/" class="btn btn-success" >Nuevo Sector </a>
+	<table class="table table-hover">
+		<thead>
+			<tr>
+				<th>Nombre</th>
+				<th>&nbsp;</th>
+			</tr>				
+		</thead>
+		<tbody>
+			{% for sector in sectores %}
 				<tr>
-					<th>Nombre</th>
-					<th>&nbsp;</th>
-				</tr>				
-			</thead>
-			<tbody>
-				{% for sector in sectores %}
-					<tr>
-						<td>{{ sector }}</td>
-						<td class="right">
-							<a href="/sector/{{ sector.id }}/editar">Edtiar</a> |
-							<a href="/sector/{{ sector.id }}/borrar">Borrar</a>
-						</td>
-					</tr>
-				{% endfor %}
-			</tbody>
-		</table>
-	</div>
-</div>
+					<td>{{ sector }}</td>
+					<td class="btn-group">
+						<a href="/sector/{{ sector.id }}/editar" class="btn btn-default">Edtiar</a> 
+						<a href="/sector/{{ sector.id }}/borrar" class="btn btn-default">Borrar</a>
+					</td>
+				</tr>
+			{% endfor %}
+		</tbody>
+	</table>
 {% endblock %}

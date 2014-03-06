@@ -1,40 +1,32 @@
 {% extends "home/base.html" %}
 {% block contenido %}
-	<div class="row">
-		<form method="post" action=""> {% csrf_token %}
-			<div class="small-12 medium-10">
-				{% for field in formulario %}
-					{% if field.errors %}
-						<div class="small-12 medium-10">
-							<div class="small-12 medium-10">
-								<label class="error">{{ field.label }} 
-									{{ field }}
-								</label>
-								<small class="error">
-									{% for error in field.errors %}
-										{{ error }}
-									{% endfor %}
-								</small>						
-							</div>
-						</div>						
-					{% else %}
-						<div class="small-12 medium-10">
-							<div class="small-12 medium-10">
-								<label>{{ field.label }}
-									{{ field }}
-								</label>
-							</div>														
-						</div>
-						{% if field.help_text %}
-							{{ field.help_text }}
-						{% endif %}
+	<form method="post" action="" role="form"> {% csrf_token %}		
+			{% for field in formulario %}
+				{% if field.errors %}
+					<div class="form-group has-error has-feedback">
+						<label class="control-label" for="{{ field.label }}">{{ field.label }}</label>
+						{{ field }}
+						<span class="glyphicon glyphicon-remove form-control-feedback"></span>
+						<small class="error">
+								{% for error in field.errors %}
+									{{ error }}
+								{% endfor %}
+						</small>
+					</div>												
+				{% else %}
+					<div class="form-group">
+						<label class="control-label" for="{{ field.label }}">{{ field.label }} </label>
+						{{ field }}								
+					</div>
+					{% if field.help_text %}
+						{{ field.help_text }}
 					{% endif %}
-				{% endfor %}
-			</div>
-			<br />
-			<div class="small-7">
-				<button type="submit"> Guardar</button>							
-			</div>
-		</form>
-	</div>
+				{% endif %}
+			{% endfor %}
+		<br />
+		<div class="small-7">
+			<button type="submit" class="btn btn-primary"> Guardar</button>					
+		</div>
+	</form>
+
 {% endblock %}

@@ -3,7 +3,10 @@
 <html lang="es">
 	<head>
 		<meta charset="utf-8">
-		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta name="description" content="">
+    	<meta name="author" content="">
 		<title>SIC - Sistema de Indicadores de Calidad</title>
 		<!--[if lt IE 7]>
 			<script src="http://ie7-js.googlecode.com/svn/version/2.1(beta4)/IE7.js"></script>
@@ -14,24 +17,24 @@
 		<!--[if lt IE 9]>
 			<script src="http://ie7-js.googlecode.com/svn/version/2.1(beta4)/IE9.js"></script>
 		<![endif]-->
-		<link href="{% static 'home/css/foundation.css' %}" rel="stylesheet" type="text/css">
-		<link href="{% static 'home/css/normalize.css' %}" rel="stylesheet" type="text/css">
-		<link href="{% static 'home/css/app.css' %}" rel="stylesheet" type="text/css">
+		<link href="{% static 'home/css/bootstrap.min.css' %}" rel="stylesheet" type="text/css">
+		<link href="{% static 'home/css/bootstrap-theme.min.css' %}" rel="stylesheet" type="text/css">
+		<link href="{% static 'home/css/sigin.css' %}" rel="stylesheet" type="text/css">
+		<!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+	    <!--[if lt IE 9]>
+	      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+	      <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+	    <![endif]-->	
 	</head>
 	<body>
-		<div class="row">
-			<div class="medium-4 medium-centered columns">
-				<form method="post" action=""> {% csrf_token %}
-					<fieldset class="panel clearfix">
-						<label for="usuario">Usuario:</label>
-						<input type="text" id="usuario" name="usuario" autofocus required/> 
-						<label for="password">Contraseña</label>
-						<input type="password" id="password" name="password" required/>
-						<button type="submit" class="button [tiny small large]">Ingresar</button> 
-						<a href="/registro/">Registrate Ya! </a>
-					</fieldset>
-				</form>
-			</div>			
+		<div class="container">			
+			<form method="post" class="form-signin" action=""> {% csrf_token %}
+				<h2 class="form-signin-heading">Porfavor Inicie sesión</h2>					
+				<input type="text" id="usuario" name="usuario" class="form-control" placeholder="Nombre de Usuario" autofocus required/>	
+				<input type="password" class="form-control" placeholder="Contraseña" id="password" name="password" required/>
+				<button type="submit" class="btn btn-lg btn-primary btn-block">Ingresar</button> 
+				<a href="/registro/" class="btn btn-lg btn-success btn-block" >Registrate Ya! </a>
+			</form>					
 		</div>
 	</body>
 </html>
