@@ -43,6 +43,12 @@ def registro_usuario(request):
 			user.is_active 	  = False
 			user.is_staff	  = False
 			user.save()
+
+			perfil 			  = PerfilUsuario()
+			perfil.usuario    = user
+			perfil.admin      = False
+			perfil.save()
+
 			return HttpResponseRedirect('/login/')
 		except IntegrityError:
 			mssg.append("Usuario Duplicado")
@@ -61,6 +67,8 @@ def dashboard(request):
 			perfil = PerfilUsuario.objects.get(usuario = request.user)
 			print perfil
 			return render(request, 'home/base.html', { "perfil":perfil })
+		else:
+			return render(request, 'home/usuario/not_active.html')
 	else:
 		return HttpResponseRedirect('/login/')
 #############################################

@@ -367,7 +367,7 @@
  	"fields" : {
  		"nombre" : "7. Tasa de eficiencia terminal por generación y área (%)",
  		"meta" : 80.0,
- 		"i_s"  : 0.0,
+ 		"i_s"  : "7",
  		"menor_igual" : "False"
  	}
  },
@@ -377,7 +377,7 @@
  	"fields" : {
  		"nombre" : "18. % de Titulados a 1 año de haber egresado",
  		"meta" : 80,
- 		"i_s"  : 0,
+ 		"i_s"  : "18",
  		"menor_igual" : "False"
  	}
  },
@@ -387,7 +387,7 @@
  	"fields" : {
  		"nombre" : "23. Promedio de egresados con trabajo a 1 año de haber egresado (%)",
  		"meta" : 80,
- 		"i_s"  : 0,
+ 		"i_s"  : "23",
  		"menor_igual" : "False"
  	}
  },
@@ -397,7 +397,7 @@
  	"fields" : {
  		"nombre" : "27. % Egresados de licenciatura que emprenden su negocio a un año de haber egresado",
  		"meta" : 30,
- 		"i_s"  : 0,
+ 		"i_s"  : "27",
  		"menor_igual" : "False"
  	}
  },
@@ -407,7 +407,7 @@
  	"fields" : {
  		"nombre" : "30. Evaluación de empleadores a los egresados de licenciatura",
  		"meta" : 9,
- 		"i_s"  : 0,
+ 		"i_s"  : "30",
  		"menor_igual" : "False"
  	}
  },
@@ -417,7 +417,7 @@
   "fields" : {
     "nombre" : "2. Tasa de deserción (%)",
     "meta" : 5,
-    "i_s"  : 0,
+    "i_s"  : "2",
     "menor_igual" : "True"
   }
  },
@@ -427,7 +427,7 @@
   "fields" : {
     "nombre" : "35. Efectividad del programa de tutorías (%)",
     "meta" : 80,
-    "i_s"  : 0,
+    "i_s"  : "35",
     "menor_igual" : "False"
   }
  },
@@ -437,7 +437,7 @@
   "fields" : {
     "nombre" : "73i.% alumnos con TOEIC aprobado al concluir sus estudios",
     "meta" : 80,
-    "i_s"  : 0,
+    "i_s"  : "73i",
     "menor_igual" : "False"
   }
  },
@@ -447,7 +447,7 @@
   "fields" : {
     "nombre" : "81. Autoevaluación competencias (importancia)",
     "meta" : 9,
-    "i_s"  : 0,
+    "i_s"  : "81",
     "menor_igual" : "False"
   }
  },
@@ -457,7 +457,7 @@
   "fields" : {
     "nombre" : "82. Autoevaluación competencias (desempeño)",
     "meta" : 9,
-    "i_s"  : 0,
+    "i_s"  : "82",
     "menor_igual" : "False"
   }
  },
@@ -467,7 +467,7 @@
   "fields" : {
     "nombre" : "80. Nivel académico del área, percibido por los alumnos.",
     "meta" : 9,
-    "i_s"  : 0,
+    "i_s"  : "80",
     "menor_igual" : "True"
   }
  },
@@ -477,7 +477,7 @@
   "fields" : {
     "nombre" : "3. Promedio del Sistema de evaluación docente (SED)",
     "meta" : 85,
-    "i_s"  : 0,
+    "i_s"  : "3",
     "menor_igual" : "False"
   }
  },
@@ -487,7 +487,7 @@
   "fields" : {
     "nombre" : "8. Promedio de evaluación . MTX (Docente y Servicios)",
     "meta" : 9,
-    "i_s"  : 0,
+    "i_s"  : "8",
     "menor_igual" : "False"
   }
  },
@@ -497,7 +497,7 @@
   "fields" : {
     "nombre" : "4. Efectividad de la mejora del desempeño docente",
     "meta" : 0,
-    "i_s"  : 0,
+    "i_s"  : "4",
     "menor_igual" : "False"
   }
  },
@@ -507,7 +507,7 @@
   "fields" : {
     "nombre" : "(10-11).Porcentaje de HORAS -CURSO impartidas con docentes por grado superior al nivel donde enseña",
     "meta" : 60,
-    "i_s"  : 0,
+    "i_s"  : "10",
     "menor_igual" : "False"
   }
  },
@@ -517,7 +517,7 @@
   "fields" : {
     "nombre" : "(13) Porcentaje de profesores con experiencia docente universitaria de 5 años o más",
     "meta" : 9,
-    "i_s"  : 0,
+    "i_s"  : "13",
     "menor_igual" : "True"
   }
  },
@@ -527,7 +527,7 @@
   "fields" : {
     "nombre" : "(84) Porcentaje de profesores con experiencia laboral de 5 años o más",
     "meta" : 60,
-    "i_s"  : 0,
+    "i_s"  : "84",
     "menor_igual" : "False"
   }
  },
@@ -537,7 +537,7 @@
   "fields" : {
     "nombre" : "(19) Porcentaje de materias impartidas por profesores de tiempo completo",
     "meta" : 40,
-    "i_s"  : 0,
+    "i_s"  : "19",
     "menor_igual" : "False"
   }
  },
@@ -547,7 +547,7 @@
   "fields" : {
     "nombre" : "6. RVOES actualizados de acuerdo con el procedimiento y política institucional",
     "meta" : 1,
-    "i_s"  : 0,
+    "i_s"  : "6",
     "menor_igual" : "False"
   }
  },
@@ -557,7 +557,7 @@
   "fields" : {
     "nombre" : "74.% Alumnos con nivel satisfactorio CENEVAL) o ENLACE",
     "meta" : 60,
-    "i_s"  : 0,
+    "i_s"  : "74",
     "menor_igual" : "False"
   }
  },
@@ -567,7 +567,7 @@
   "fields" : {
     "nombre" : "75. Programas acreditados o certificados por instancias externas",
     "meta" : 1,
-    "i_s"  : 0,
+    "i_s"  : "75",
     "menor_igual" : "True"
   }
  },
@@ -577,7 +577,7 @@
   "fields" : {
     "nombre" : "i22. Porcentaje de participación por área en la Encuesta",
     "meta" : 80,
-    "i_s"  : 0,
+    "i_s"  : "i22",
     "menor_igual" : "False"
   }
  },
@@ -587,7 +587,7 @@
   "fields" : {
     "nombre" : "57.Utilidad neta institucional y por programas",
     "meta" : 0,
-    "i_s"  : 0,
+    "i_s"  : "57",
     "menor_igual" : "False"
   }
  },
@@ -597,7 +597,7 @@
   "fields" : {
     "nombre" : "53. % de proyectos alcanzados",
     "meta" : 80,
-    "i_s"  : 0,
+    "i_s"  : "53",
     "menor_igual" : "False"
   }
  },
@@ -607,7 +607,7 @@
   "fields" : {
     "nombre" : "50. Evaluación de pares de los clientes internos",
     "meta" : 9,
-    "i_s"  : 0,
+    "i_s"  : "50",
     "menor_igual" : "False"
   }
  },
@@ -617,7 +617,7 @@
   "fields" : {
     "nombre" : "(60) porcentaje de cumplimiento en la entrega de Indicadores de Gestión",
     "meta" : 95,
-    "i_s"  : 0,
+    "i_s"  : "60",
     "menor_igual" : "True"
   }
  },
@@ -627,7 +627,7 @@
   "fields" : {
     "nombre" : "(69) Porcentaje de 'promotores netos'",
     "meta" : 75,
-    "i_s"  : 0,
+    "i_s"  : "69",
     "menor_igual" : "False"
   }
  },
@@ -637,7 +637,7 @@
   "fields" : {
     "nombre" : "50. % de Becas",
     "meta" : 17,
-    "i_s"  : 0,
+    "i_s"  : "50",
     "menor_igual" : "True"
   }
  },
@@ -647,7 +647,7 @@
   "fields" : {
     "nombre" : "33. % de alumnos en programas de internacionalización por áreas",
     "meta" : 10,
-    "i_s"  : 0,
+    "i_s"  : "33",
     "menor_igual" : "False"
   }
  },
@@ -657,7 +657,7 @@
   "fields" : {
     "nombre" : "88. Evaluación promedio en la satisfacción de los eventos de extensión universitaria",
     "meta" : 9,
-    "i_s"  : 0,
+    "i_s"  : "88",
     "menor_igual" : "False"
   }
  },
@@ -667,8 +667,408 @@
   "fields" : {
     "nombre" : "14. No. de publicaciones en la institución (al menos 1 por área)",
     "meta" : 1,
-    "i_s"  : 0,
+    "i_s"  : "14",
     "menor_igual" : "False"
+  }
+ },
+ {
+  "model" : "home.indicador_area",
+  "pk" : 1,
+  "fields" : {
+    "indicador" : 1,
+    "area" : 1
+  }
+ },
+ {
+  "model" : "home.indicador_area",
+  "pk" : 2,
+  "fields" : {
+    "indicador" : 1,
+    "area" : 2
+  }
+ },
+ {
+  "model" : "home.indicador_area",
+  "pk" : 3,
+  "fields" : {
+    "indicador" : 1,
+    "area" : 3
+  }
+ },
+ {
+  "model" : "home.indicador_area",
+  "pk" : 4,
+  "fields" : {
+    "indicador" : 1,
+    "area" : 4
+  }
+ },
+ {
+  "model" : "home.indicador_area",
+  "pk" : 5,
+  "fields" : {
+    "indicador" : 1,
+    "area" : 6
+  }
+ },
+ {
+  "model" : "home.indicador_area",
+  "pk" : 6,
+  "fields" : {
+    "indicador" : 1,
+    "area" : 7
+  }
+ },
+ {
+  "model" : "home.indicador_area",
+  "pk" : 7,
+  "fields" : {
+    "indicador" : 1,
+    "area" : 8
+  }
+ },
+ {
+  "model" : "home.indicador_area",
+  "pk" : 8,
+  "fields" : {
+    "indicador" : 1,
+    "area" : 10
+  }
+ },
+ {
+  "model" : "home.indicador_area",
+  "pk" : 9,
+  "fields" : {
+    "indicador" : 1,
+    "area" : 11
+  }
+ },
+ {
+  "model" : "home.indicador_area",
+  "pk" : 10,
+  "fields" : {
+    "indicador" : 1,
+    "area" : 12
+  }
+ },
+ {
+  "model" : "home.indicador_area",
+  "pk" : 11,
+  "fields" : {
+    "indicador" : 1,
+    "area" : 13
+  }
+ },
+ {
+  "model" : "home.indicador_area",
+  "pk" : 12,
+  "fields" : {
+    "indicador" : 1,
+    "area" : 14
+  }
+ },
+ {
+  "model" : "home.indicador_area",
+  "pk" : 13,
+  "fields" : {
+    "indicador" : 1,
+    "area" : 15
+  }
+ },
+ {
+  "model" : "home.indicador_area",
+  "pk" : 14,
+  "fields" : {
+    "indicador" : 1,
+    "area" : 16
+  }
+ },
+ {
+  "model" : "home.indicador_area",
+  "pk" : 15,
+  "fields" : {
+    "indicador" : 1,
+    "area" : 17
+  }
+ },
+ {
+  "model" : "home.indicador_area",
+  "pk" : 16,
+  "fields" : {
+    "indicador" : 1,
+    "area" : 18
+  }
+ },
+ {
+  "model" : "home.indicador_area",
+  "pk" : 17,
+  "fields" : {
+    "indicador" : 1,
+    "area" : 22
+  }
+ },
+ {
+  "model" : "home.indicador_area",
+  "pk" : 18,
+  "fields" : {
+    "indicador" : 1,
+    "area" : 23
+  }
+ },
+ {
+  "model" : "home.indicador_area",
+  "pk" : 19,
+  "fields" : {
+    "indicador" : 1,
+    "area" : 25
+  }
+ },
+ {
+  "model" : "home.indicador_area",
+  "pk" : 20,
+  "fields" : {
+    "indicador" : 1,
+    "area" : 26
+  }
+ },
+ {
+  "model" : "home.indicador_area",
+  "pk" : 21,
+  "fields" : {
+    "indicador" : 1,
+    "area" : 27
+  }
+ },
+ {
+  "model" : "home.indicador_area",
+  "pk" : 22,
+  "fields" : {
+    "indicador" : 1,
+    "area" : 29
+  }
+ },
+ {
+  "model" : "home.indicador_area",
+  "pk" : 23,
+  "fields" : {
+    "indicador" : 1,
+    "area" : 30
+  }
+ },
+ {
+  "model" : "home.indicador_area",
+  "pk" : 24,
+  "fields" : {
+    "indicador" : 1,
+    "area" : 31
+  }
+ },
+ {
+  "model" : "home.indicador_area",
+  "pk" : 25,
+  "fields" : {
+    "indicador" : 1,
+    "area" : 32
+  }
+ },
+ {
+  "model" : "home.indicador_area",
+  "pk" : 26,
+  "fields" : {
+    "indicador" : 1,
+    "area" : 33
+  }
+ },
+ {
+  "model" : "home.indicador_area",
+  "pk" : 27,
+  "fields" : {
+    "indicador" : 2,
+    "area" : 6
+  }
+ },
+ {
+  "model" : "home.indicador_area",
+  "pk" : 28,
+  "fields" : {
+    "indicador" : 2,
+    "area" : 7
+  }
+ },
+ {
+  "model" : "home.indicador_area",
+  "pk" : 29,
+  "fields" : {
+    "indicador" : 2,
+    "area" : 8
+  }
+ },
+ {
+  "model" : "home.indicador_area",
+  "pk" : 30,
+  "fields" : {
+    "indicador" : 2,
+    "area" : 10
+  }
+ },
+ {
+  "model" : "home.indicador_area",
+  "pk" : 31,
+  "fields" : {
+    "indicador" : 2,
+    "area" : 11
+  }
+ },
+ {
+  "model" : "home.indicador_area",
+  "pk" : 32,
+  "fields" : {
+    "indicador" : 2,
+    "area" : 12
+  }
+ },
+ {
+  "model" : "home.indicador_area",
+  "pk" : 33,
+  "fields" : {
+    "indicador" : 2,
+    "area" : 14
+  }
+ },
+ {
+  "model" : "home.indicador_area",
+  "pk" : 34,
+  "fields" : {
+    "indicador" : 2,
+    "area" : 15
+  }
+ },
+ {
+  "model" : "home.indicador_area",
+  "pk" : 35,
+  "fields" : {
+    "indicador" : 2,
+    "area" : 17
+  }
+ },
+ {
+  "model" : "home.indicador_area",
+  "pk" : 36,
+  "fields" : {
+    "indicador" : 2,
+    "area" : 18
+  }
+ },
+ {
+  "model" : "home.indicador_area",
+  "pk" : 37,
+  "fields" : {
+    "indicador" : 2,
+    "area" : 22
+  }
+ },
+ {
+  "model" : "home.indicador_area",
+  "pk" : 38,
+  "fields" : {
+    "indicador" : 2,
+    "area" : 23
+  }
+ },
+ {
+  "model" : "home.indicador_area",
+  "pk" : 39,
+  "fields" : {
+    "indicador" : 2,
+    "area" : 25
+  }
+ },
+ {
+  "model" : "home.indicador_area",
+  "pk" : 40,
+  "fields" : {
+    "indicador" : 2,
+    "area" : 26
+  }
+ },
+ {
+  "model" : "home.indicador_area",
+  "pk" : 41,
+  "fields" : {
+    "indicador" : 2,
+    "area" : 27
+  }
+ },
+ {
+  "model" : "home.indicador_area",
+  "pk" : 42,
+  "fields" : {
+    "indicador" : 2,
+    "area" : 29
+  }
+ },
+ {
+  "model" : "home.indicador_area",
+  "pk" : 43,
+  "fields" : {
+    "indicador" : 2,
+    "area" : 33
+  }
+ },
+ {
+  "model" : "home.indicador_area",
+  "pk" : 44,
+  "fields" : {
+    "indicador" : 3,
+    "area" : 6
+  }
+ },
+ {
+  "model" : "home.indicador_area",
+  "pk" : 45,
+  "fields" : {
+    "indicador" : 3,
+    "area" : 7
+  }
+ },
+ {
+  "model" : "home.indicador_area",
+  "pk" : 46,
+  "fields" : {
+    "indicador" : 3,
+    "area" : 8
+  }
+ },
+ {
+  "model" : "home.indicador_area",
+  "pk" : 47,
+  "fields" : {
+    "indicador" : 3,
+    "area" : 10
+  }
+ },
+ {
+  "model" : "home.indicador_area",
+  "pk" : 48,
+  "fields" : {
+    "indicador" : 3,
+    "area" : 11
+  }
+ },
+ {
+  "model" : "home.indicador_area",
+  "pk" : 49,
+  "fields" : {
+    "indicador" : 3,
+    "area" : 12
+  }
+ },
+ {
+  "model" : "home.indicador_area",
+  "pk" : 50,
+  "fields" : {
+    "indicador" : 3,
+    "area" : 14
   }
  }
 ]

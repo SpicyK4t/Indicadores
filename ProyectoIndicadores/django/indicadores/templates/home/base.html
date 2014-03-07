@@ -42,7 +42,7 @@
 		          <ul class="nav navbar-nav">
 		          	{% if perfil.es_admin %}	            
 		            <li class="dropdown">
-		              <a href="#" class="dropdown-toggle" data-toggle="dropdown">Opciones Administrador <b class="caret"></b></a>
+		              <a href="#" class="dropdown-toggle" data-toggle="dropdown">Administración<b class="caret"></b></a>
 		              <ul class="dropdown-menu">
 		                <li><a href="/sector/">Sector</a></li>
   						<li><a href="/indicador/">Indicador</a></li>
@@ -51,8 +51,11 @@
 		              </ul>
 		            </li>
 		            {% endif %}
+		            {% if perfil.usuario.is_active %}
 		            <li><a href="#">Mis indicadores</a></li>
+		            {% endif %}
 		          </ul>
+		          {% if perfil.usuario.is_active %}
 		          <ul class="nav navbar-nav navbar-right">
 		            <li class="dropdown">
 		              <a href="#" class="dropdown-toggle" data-toggle="dropdown">Bienvenido, {{ perfil.usuario.username }} <b class="caret"></b></a>
@@ -63,6 +66,7 @@
 		              </ul>
 		            </li>
 		          </ul>
+		          {% endif %}
 		        </div><!--/.nav-collapse -->
 		      </div>
 		    </div>

@@ -1,5 +1,5 @@
 from django.forms import Textarea, ModelMultipleChoiceField, SelectMultiple, BooleanField, CheckboxInput, ModelForm, CharField, TextInput, DecimalField, NumberInput, ModelChoiceField, Select
-from home.models import Sector, Area, Indicador, PerfilUsuario, Indicador
+from home.models import Sector, Area, PerfilUsuario, Indicador, Indicador_Area
 from django.contrib.auth.models import User
 from django.contrib.auth.forms import UserChangeForm
 
@@ -33,7 +33,7 @@ class AreaForm(ModelForm):
 class IndicadorForm(ModelForm):
 	nombre 			= CharField(widget=TextInput(attrs={'class':'form-control'}))
 	meta 			= DecimalField(widget=NumberInput(attrs={'class':'form-control', 'min':'0'}))
-	i_s 			= DecimalField(widget=NumberInput(attrs={'class':'form-control', 'min':'0'}))
+	i_s 			= CharField(widget=TextInput(attrs={'class':'form-control',}), max_length=4)
 	proveedor		= ModelChoiceField(widget=Select(attrs={'class':'form-control'}), queryset=PerfilUsuario.objects.all())
 	menor_igual 	= BooleanField(widget=CheckboxInput(attrs={'class':'checkbox'}))
 	indicador_area  = ModelMultipleChoiceField(widget=SelectMultiple(attrs={'class':'form-control'}), queryset=Area.objects.all())
@@ -54,7 +54,7 @@ class IndicadorForm(ModelForm):
 				'required' : "Campo requerido"
 			},
 		}
-
+		
 class PerfilUsuarioForm(ModelForm):
 	class Meta:		
 		model = PerfilUsuario

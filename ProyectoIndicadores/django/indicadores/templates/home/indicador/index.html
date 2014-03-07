@@ -4,6 +4,7 @@
 	<table class="table table-hover">
 		<thead>
 			<tr>
+				<th>I's</th>
 				<th>Nombre</th>
 				<th>Meta</th>
 				<th>Menor a la Meta</th>
@@ -13,6 +14,7 @@
 		<tbody>
 			{% for indicador in indicadores %}
 				<tr>
+					<td>{{ indicador.i_s }}</td>
 					<td>{{ indicador }}</td>
 					<td>{{ indicador.meta }}</td>
 					{% if indicador.menor_igual %}
