@@ -635,9 +635,9 @@
   "model" : "home.indicador",
   "pk" : 28,
   "fields" : {
-    "nombre" : "50. % de Becas",
+    "nombre" : "70. % de Becas",
     "meta" : 17,
-    "i_s"  : "50",
+    "i_s"  : "70",
     "menor_igual" : "True"
   }
  },

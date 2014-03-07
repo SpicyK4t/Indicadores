@@ -1,18 +1,18 @@
 {% extends "home/base.html" %}
-{% block contenido %}
-	<a href="/usuario/nuevo/" class="btn btn-success">Nuevo Usuario </a>
+{% block contenido %}	
+	<h2>Usuarios Activos</h2>
 	<table class="table table-hover">
 		<thead>
 			<tr>
 				<th>Nombre de Usuario</th>
 				<th>Correo</th>
-				<th>Es administrador</th>
-				<th>Cuenta Activa </th>					
+				<th>Es administrador</th>								
 				<th>&nbsp;</th>
 			</tr>				
 		</thead>
 		<tbody>
 			{% for usuario in usuarios %}
+				{% if usuario.usuario.is_active and not usuario.usuario.is_staff %}
 				<tr>
 					<td>{{ usuario }}</td>
 					<td>{{ usuario.usuario.email }} </td>
@@ -23,17 +23,39 @@
 						<td> NO </td>
 					{% endif %}
 
-					{% if usuario.usuario.is_active %}
-						<td> SI </td>
-					{% else %}
-						<td> NO </td>
-					{% endif %}
-
 					<td class="btn-group">
-						<a href="/usuario/{{ usuario.id }}/editar" class="btn btn-default">Edtiar</a>
-						<a href="/usuario/{{ usuario.id }}/borrar" class="btn btn-default">Borrar</a>
+						<a href="/usuario/{{ usuario.id }}/editar" class="btn btn-default">Edtiar</a>						
+						<a href="/usuario/{{ usuario.id }}/admin" class="btn btn-default">Admin</a>
+						<a href="/usuario/{{ usuario.id }}/habilitar" class="btn btn-default">Deshabilitar</a>
 					</td>
 				</tr>
+				{% endif %}
+			{% endfor %}
+		</tbody>
+	</table>
+	<hr />
+	<h2>Usuarios No Activos</h2>
+	<table class="table table-hover">
+		<thead>
+			<tr>
+				<th>Nombre de Usuario</th>
+				<th>Correo</th>								
+				<th>&nbsp;</th>
+			</tr>				
+		</thead>
+		<tbody>
+			{% for usuario in usuarios %}
+				{% if not usuario.usuario.is_active and not usuario.usuario.is_staff %}
+				<tr>
+					<td>{{ usuario }}</td>
+					<td>{{ usuario.usuario.email }} </td>
+
+					<td class="btn-group">						
+						<a href="/usuario/{{ usuario.id }}/borrar" class="btn btn-default">Borrar</a>
+						<a href="/usuario/{{ usuario.id }}/habilitar" class="btn btn-default">Habilitar</a>						
+					</td>
+				</tr>
+				{% endif %}
 			{% endfor %}
 		</tbody>
 	</table>

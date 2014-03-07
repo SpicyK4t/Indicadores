@@ -22,6 +22,9 @@ urlpatterns = patterns('',
     ## Usuarios ##
     url(r'^usuario/$'   , views.lista_usuario, name="lista_usuario" ),
     url(r'^usuario/nuevo/$', views.nuevo_usuario, name="nuevo_usuario"),
+    url(r'^usuario/(?P<id>[0-9]+)/borrar/$', views.borrar_usuario, name="borrar_usuario"),
+    url(r'^usuario/(?P<id>[0-9]+)/habilitar/$', views.habilitar_usuario, name="habilitar_usuario"),
+    url(r'^usuario/(?P<id>[0-9]+)/admin/$', views.admin_usuario, name="admin_usuario"),
 
 
     ## Dashboars ##
@@ -39,12 +42,15 @@ urlpatterns = patterns('',
     url(r'^area/nueva/' , views.nueva_area, name="nueva_area"),
     url(r'^area/(?P<id>[0-9]+)/editar/$', views.editar_area, name="editar_area"),
     url(r'^area/(?P<id>[0-9]+)/borrar/$', views.borrar_area, name="borrar_area"),
+    url(r'^area/(?P<id>[0-9]+)/asignar/$', views.asignar_area, name="asignar_area"),
 
     ## Indicador ##
+    url(r'^mis_indicadores/$', views.mis_indicadores, name = "mis_indicadores"),
     url(r'^indicador/$', views.lista_indicador, name = "lista_indicador"),
     url(r'^indicador/nuevo/', views.nuevo_indicador, name = "nuevo_indicador"),
     url(r'^indicador/(?P<id>[0-9]+)/editar/$', views.editar_indicador, name = "editar_indicador"),
     url(r'^indicador/(?P<id>[0-9]+)/borrar/$', views.borrar_indicador, name = "borrar_indicador"),
+    url(r'^indicador/(?P<id>[0-9]+)/asignar/$', views.asignar_indicador, name = "asignar_indicador"),
 
 
 ) + static(settings.STATIC_URL, document_root = settings.STATIC_ROOT)

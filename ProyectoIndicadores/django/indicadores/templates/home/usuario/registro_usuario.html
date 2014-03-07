@@ -1,23 +1,28 @@
 {% extends "home/base.html" %}
 {% block contenido %}
-			<form action="" method="post"> {% csrf_token %}
-				<div class="form-group">
-					<input name="nombre" class="form-control" type="text" placeholder="Nombre" required autofocus/>
-				</div>			
-				<div class="form-group">
-					<input name="apellido" class="form-control" type="text" placeholder="Apellido" required/>		
-				</div>
-				<div class="form-group">
-					<input name="username" class="form-control" type="text" placeholder="Correo" required />		
-				</div>
-				<div class="form-group">
-					<input name="password" class="form-control" type="password" placeholder="Contraseña" required/>
-				</div>
-                <div class="form-group">
-                    <blockquote><small>La cuenta de usuario estará suspendida hasta que sea autorizada por el administrador.</small> </blockquote>
-                </div>
-				<div class="form-group">
-					<button type="submit" class="btn btn-primary btn-lg right">Guardar</button>					
-				</div>
-			</form>
+<div class="col-md-8">
+	<form action="" method="post"> {% csrf_token %}
+		<div class="form-group">
+			<input name="nombre" class="form-control" type="text" placeholder="Nombre" required autofocus/>
+		</div>			
+		<div class="form-group">
+			<input name="apellido" class="form-control" type="text" placeholder="Apellido" required/>		
+		</div>
+		<div class="form-group">
+			<div class="input-group">
+				<input name="username" class="form-control" type="text" placeholder="Correo" required />
+				<span class="input-group-addon"> @udec.edu.mx </span>
+			</div>	
+		</div>
+		<div class="form-group">
+			<input name="password" class="form-control" type="password" placeholder="Contraseña" required/>
+		</div>
+        <div class="form-group">
+            <blockquote><small>La cuenta de usuario estará suspendida hasta que sea autorizada por el administrador.</small> </blockquote>
+        </div>
+		<div class="form-group">
+			<button type="submit" class="btn btn-primary btn-lg">Guardar</button>					
+			<a href="/login/" class="btn btn-lg btn-warning">Regresar</a>	
+		</div>
+	</form>
 {% endblock %}

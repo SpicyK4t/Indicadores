@@ -3,8 +3,8 @@ from django.contrib.auth import authenticate, login as auth_login, logout as aut
 from django.contrib.auth.models import User as AuthUser
 from django.http import HttpResponseRedirect
 from django.db import IntegrityError
-from home.models import Sector, Area, PerfilUsuario, Indicador
-from home.forms import SectorForm, AreaForm, PerfilUsuarioForm, IndicadorForm
+from home.models import Sector, Area, PerfilUsuario, Indicador, Indicador_Area
+from home.forms import SectorForm, AreaForm, PerfilUsuarioForm, IndicadorForm, AsignarIndicadorForm, AsignarAreaForm
 
 def login(request):
 	if request.method == 'POST':
@@ -21,7 +21,9 @@ def login(request):
 		if request.user.is_active:
 			return HttpResponseRedirect('/dashboard/')
 		else:
-			return render(request, 'home/usuario/not_active.html')
+			auth_logout(request)
+			return render(request, 'home/usuario/login.html')
+
 	else:
 		return render(request, 'home/usuario/login.html')
 
@@ -60,15 +62,25 @@ def registro_usuario(request):
 				return render(request, 'home/usuario/not_active.html')
 	return render(request, 'home/usuario/registro_usuario.html', { "errores":mssg })
 
+
+
 #############################################
 def dashboard(request):
 	if request.user.is_authenticated():
 		if request.user.is_active:
 			perfil = PerfilUsuario.objects.get(usuario = request.user)
 			print perfil
-			return render(request, 'home/base.html', { "perfil":perfil })
+			return render(request, 'home/dashboard.html', { "perfil":perfil })
 		else:
 			return render(request, 'home/usuario/not_active.html')
+	else:
+		return HttpResponseRedirect('/login/')
+
+def mis_indicadores(request):
+	if request.user.is_authenticated() and request.user.is_active:
+		perfil = PerfilUsuario.objects.get(usuario = request.user)
+		indicadores = Indicador.objects.filter(proveedor = perfil)
+		return render(request, 'home/indicador/mis_indicadores.html', { "perfil":perfil })
 	else:
 		return HttpResponseRedirect('/login/')
 #############################################
@@ -90,7 +102,7 @@ def nueva_area(request):
 			formulario = AreaForm(request.POST)
 			if formulario.is_valid():
 				area = formulario.save(commit=False)
-				area.save()
+				area.save()				
 				return HttpResponseRedirect('/area/')
 		else:
 			formulario = AreaForm()
@@ -103,6 +115,7 @@ def editar_area(request, id):
 		area = get_object_or_404(Area, id = id)
 		perfil = PerfilUsuario.objects.get(usuario = request.user)
 		if request.method == 'POST':
+
 			formulario = AreaForm(request.POST, instance=area)
 			if formulario.is_valid():
 				formulario.save()
@@ -118,6 +131,33 @@ def borrar_area(request, id):
 		area = get_object_or_404(Area, id = id)
 		area.delete()
 		return HttpResponseRedirect('/area/')
+	else:
+		return HttpResponseRedirect('/login/')
+
+def asignar_area(request, id):
+	if request.user.is_authenticated() and request.user.is_active and PerfilUsuario.objects.get(usuario = request.user).admin == True:
+		perfil = PerfilUsuario.objects.get(usuario = request.user)		
+		if request.method == 'POST':
+			area = get_object_or_404(Area, id = id)
+			
+			for element in Indicador_Area.objects.filter(area=area):
+				element.delete()
+
+			if 	request.POST.getlist('indicadores'):
+				indicadores = request.POST.getlist('indicadores')
+
+				for indicador in indicadores:				
+					indi_ar = Indicador_Area()
+					indi_ar.area = area
+					indi_ar.indicador = get_object_or_404(Indicador, id=indicador)
+					indi_ar.save()
+			return HttpResponseRedirect('/area/')
+
+		else:
+			formulario = AsignarIndicadorForm(area = id)
+
+		return render(request, 'home/formulario_nuevo_editar.html', {'formulario':formulario, "perfil":perfil}) 
+		
 	else:
 		return HttpResponseRedirect('/login/')
 ##############################################
@@ -182,7 +222,7 @@ def lista_usuario(request):
 		return HttpResponseRedirect('/login/')
 
 def nuevo_usuario(request):
-	if request.user.is_authenticated() and request.user.is_active and PerfilUsuario.objects.get(username = request.user.username).admin == True:
+	if request.user.is_authenticated() and request.user.is_active and PerfilUsuario.objects.get(usuario = request.user).admin == True:
 		perfil = PerfilUsuario.objects.get(usuario = request.user)
 		if request.method == 'POST':
 			formulario = PerfilUsuarioForm(request.POST)
@@ -197,6 +237,35 @@ def nuevo_usuario(request):
 		return render(request, 'home/formulario_nuevo_editar.html', {"formulario":formulario, "perfil":perfil})
 	else:
 		return HttpResponseRedirect('/login/')
+
+def admin_usuario(request, id):
+	if request.user.is_authenticated() and request.user.is_active and PerfilUsuario.objects.get(usuario = request.user).admin == True:
+		perfil_usuario = get_object_or_404(PerfilUsuario, id = id)
+		perfil_usuario.admin = not perfil_usuario.admin
+		perfil_usuario.save();
+		return HttpResponseRedirect("/usuario/")
+	else:
+		return HttpResponseRedirect("/dashboard/")
+
+def habilitar_usuario(request, id):
+	if request.user.is_authenticated() and request.user.is_active and PerfilUsuario.objects.get(usuario = request.user).admin == True:
+		usuario = get_object_or_404(AuthUser, id = id)
+		usuario.is_active = not usuario.is_active
+		usuario.save()
+		return HttpResponseRedirect("/usuario/")
+	else:
+		return HttpResponseRedirect("/dashboard/")
+
+def borrar_usuario(request, id):
+	if request.user.is_authenticated() and request.user.is_active and PerfilUsuario.objects.get(usuario = request.user).admin == True:
+		usuario = get_object_or_404(AuthUser, id = id)
+		perfil  = get_object_or_404(PerfilUsuario, id = id)
+		perfil.delete()
+		usuario.delete()
+		return HttpResponseRedirect("/usuario/")
+	else:
+		return HttpResponseRedirect("/dashboard/")
+
 ##############################################
 ####### Indicador ############################
 ##############################################
@@ -217,7 +286,7 @@ def nuevo_indicador(request):
 			if formulario.is_valid():
 				indicador = formulario.save(commit=False)
 				indicador.save()
-				return HttpResponseRedirect('/Indicador/')
+				return HttpResponseRedirect('/indicador/')
 		else:
 			formulario = IndicadorForm()
 		return render(request, 'home/formulario_nuevo_editar.html', {"formulario":formulario, "perfil":perfil})
@@ -230,7 +299,7 @@ def editar_indicador(request, id):
 			formulario = IndicadorForm(request.POST, instance = indicador)
 			if formulario.is_valid():
 				formulario.save()
-				return HttpResponseRedirect('/Indicador/')
+				return HttpResponseRedirect('/indicador/')
 		else:
 			formulario = IndicadorForm(instance = indicador)
 		return render(request, 'home/formulario_nuevo_editar.html', {'formulario':formulario, "perfil":perfil})
@@ -241,8 +310,35 @@ def borrar_indicador(request, id):
 	if request.user.is_authenticated() and request.user.is_active:# and PerfilUsuario.objects.get(usuario = request.user).admin == True:
 		indicador = get_object_or_404(Indicador, id = id)
 		indicador.delete()
-		return HttpResponseRedirect('/Indicador/')
+		return HttpResponseRedirect('/indicador/')
 	else:
 		return  HttpResponseRedirect('/login/')
+
+def asignar_indicador(request, id):
+	if request.user.is_authenticated() and request.user.is_active and PerfilUsuario.objects.get(usuario = request.user).admin == True:
+		perfil = PerfilUsuario.objects.get(usuario = request.user)		
+		if request.method == 'POST':
+			indicador = get_object_or_404(Indicador, id = id)
+			
+			for element in Indicador_Area.objects.filter(indicador=indicador):
+				element.delete()
+
+			if 	request.POST.getlist('areas'):
+				areas = request.POST.getlist('areas')
+
+				for area in areas:				
+					indi_ar = Indicador_Area()
+					indi_ar.area = get_object_or_404(Area, id=area)
+					indi_ar.indicador = indicador
+					indi_ar.save()
+			return HttpResponseRedirect('/indicador/')
+
+		else:
+			formulario = AsignarAreaForm(indicador = id)
+
+		return render(request, 'home/formulario_nuevo_editar.html', {'formulario':formulario, "perfil":perfil}) 
+		
+	else:
+		return HttpResponseRedirect('/login/')
 ##############################################
 #######
