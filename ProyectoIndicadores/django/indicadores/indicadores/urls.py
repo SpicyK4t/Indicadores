@@ -25,11 +25,13 @@ urlpatterns = patterns('',
     url(r'^usuario/(?P<id>[0-9]+)/borrar/$', views.borrar_usuario, name="borrar_usuario"),
     url(r'^usuario/(?P<id>[0-9]+)/habilitar/$', views.habilitar_usuario, name="habilitar_usuario"),
     url(r'^usuario/(?P<id>[0-9]+)/admin/$', views.admin_usuario, name="admin_usuario"),
+    url(r'^usuario/pass/$', views.pass_usuario, name="pass_usuario"),
 
 
     ## Dashboars ##
     url(r'^dashboard/$'	, views.dashboard, name="dashboard"),
     url(r'^indicadores/$' , views.dashboard_condensado, name="dashboard_condensado"),
+    url(r'^reporte/$' , views.reporte_condensado, name="reporte_condensado"),
     url(r'^dashboard/(?P<id>[0-9]+)/llenar/$' , views.llenar_dashboard, name="llenar_dashboard"),
     url(r'^dashboard/(?P<id>[0-9]+)/ver/$' , views.ver_dashboard, name="ver_dashboard"),
     url(r'^$', views.dashboard, name="home"),

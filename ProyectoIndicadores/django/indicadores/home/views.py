@@ -1,10 +1,12 @@
+#encoding:utf-8
 from django.shortcuts import render, get_object_or_404
 from django.contrib.auth import authenticate, login as auth_login, logout as auth_logout
 from django.contrib.auth.models import User as AuthUser
-from django.http import HttpResponseRedirect
+from django.http import HttpResponseRedirect, HttpResponse
 from django.db import IntegrityError
 from home.models import Sector, Area, PerfilUsuario, Indicador, Indicador_Area
 from home.forms import SectorForm, AreaForm, PerfilUsuarioForm, IndicadorForm, AsignarIndicadorForm, AsignarAreaForm
+from xlwt import *
 
 def login(request):
 	if request.method == 'POST':
@@ -17,6 +19,8 @@ def login(request):
 				return HttpResponseRedirect('/dashboard/')
 			else:
 				return render(request, 'home/usuario/not_active.html')
+		else:
+			return render(request, 'home/usuario/login.html')
 	elif request.user.is_authenticated():
 		if request.user.is_active:
 			return HttpResponseRedirect('/dashboard/')
@@ -120,31 +124,96 @@ def mis_indicadores(request):
 
 def dashboard_condensado(request):
 	if request.user.is_authenticated() and request.user.is_active and PerfilUsuario.objects.get(usuario = request.user).admin == True:
+		
 		perfil = PerfilUsuario.objects.get(usuario = request.user)	
 		indicadores = Indicador.objects.all()
 		areas = Area.objects.all()
+		
+		tabla = [ [ "" for i in range(len(areas) + 3) ] for j in range(len(indicadores)) ]		
+		col = 3
+		row = 0
+		for indicador in indicadores:			
+			tabla[row][0] = '<td>' + str(indicador) + '</td>'
+			tabla[row][1] = '<td>' + str(indicador.meta) + '</td>'
+			if indicador.menor_igual:
+				if indicador.meta > indicador.valor_institucional():
+					tabla[row][2] = '<td class="success">' + str(indicador.valor_institucional()) + '</td>'
+				elif indicador.meta == indicador.valor_institucional():
+					tabla[row][2] = '<td class="warning">' + str(indicador.valor_institucional()) + '</td>'
+				else:
+					tabla[row][2] = '<td class="danger">' + str(indicador.valor_institucional()) + '</td>'
+			else:
+				if indicador.meta < indicador.valor_institucional():
+					tabla[row][2] = '<td class="success">' + str(indicador.valor_institucional()) + '</td>'
+				elif indicador.meta == indicador.valor_institucional():
+					tabla[row][2] = '<td class="warning">' + str(indicador.valor_institucional()) + '</td>'
+				else:
+					tabla[row][2] = '<td class="danger">' + str(indicador.valor_institucional()) + '</td>'
 
-		matriz = [[""] * (len(areas) + 3)] * 2
-		fila = 0
-		columna  = 3
-
-		for indicador in indicadores[:2]:			
-			print "fila: " + str(fila)
-			matriz[fila][0] = indicador.i_s
-			matriz[fila][1] = str(indicador.meta)
-			matriz[fila][2] = indicador.valor_institucional()			
  			for area in areas:
- 				valor_indicador_area = Indicador_Area.objects.filter(indicador=indicador).filter(area=area)				
-				if len(valor_indicador_area) == 1:	
-					valor = valor_indicador_area[0].valor		
-					matriz[fila][columna] = valor				
-				print "columna: " + str(columna)
-				columna += 1
-			#print str(matriz) + "\n"
-			fila += 1
-			columna = 3
-		print matriz
-		return render(request, 'home/condensado.html', {"perfil": perfil, "indicadores":indicadores, "areas":areas, "matriz":matriz})
+ 				valor_indicador = Indicador_Area.objects.filter(area = area).filter(indicador = indicador)
+ 				if len(valor_indicador) >= 1: 
+ 					if indicador.menor_igual:
+						if indicador.meta > valor_indicador[0].valor:
+							tabla[row][col] = '<td class="success">' + str(valor_indicador[0].valor) + '</td>'
+						elif indicador.meta == valor_indicador[0].valor:
+							tabla[row][col] = '<td class="warning">' + str(valor_indicador[0].valor) + '</td>'
+						else:
+							tabla[row][col] = '<td class="danger">' + str(valor_indicador[0].valor) + '</td>'
+					else:
+						if indicador.meta < valor_indicador[0].valor:
+							tabla[row][col] = '<td class="success">' + str(valor_indicador[0].valor) + '</td>'
+						elif indicador.meta == valor_indicador[0].valor:
+							tabla[row][col] = '<td class="warning">' + str(valor_indicador[0].valor) + '</td>'
+						else:
+							tabla[row][col] = '<td class="danger">' + str(valor_indicador[0].valor) + '</td>'
+				else:
+ 					tabla[row][col] = "<td>&nbsp;</td>"
+ 				col += 1
+ 			row += 1
+ 			col = 3
+
+		return render(request, 'home/condensado.html', {"perfil": perfil, "indicadores":indicadores, "areas":areas, "matriz":tabla})				
+	else:
+		return HttpResponseRedirect('/login/')	
+
+def reporte_condensado(request):
+	if request.user.is_authenticated() and request.user.is_active and PerfilUsuario.objects.get(usuario = request.user).admin == True:
+		
+		perfil = PerfilUsuario.objects.get(usuario = request.user)	
+		indicadores = Indicador.objects.all()
+		areas = Area.objects.all()
+		
+		response = HttpResponse(mimetype="application/ms-excel")
+		response['Content-Disposition'] = 'attachment; filename=%s' % "Reporte_Condensado.xls"
+
+		xls = Workbook()
+		doc = xls.add_sheet('Indicadores')
+		doc.write(0, 0, "Indicador")
+		doc.write(0, 1, "Meta")	
+		doc.write(0, 2, "Institucional")
+		col = 3
+		for area in areas:
+			doc.write(0, col, str(area))
+			col += 1
+		col = 3
+		row = 1
+		for indicador in indicadores:
+			doc.write(row, 0, unicode(indicador))
+			doc.write(row, 1, indicador.meta)
+			doc.write(row, 2, indicador.valor_institucional())
+
+			for area in areas:
+				valor_indicador = Indicador_Area.objects.filter(area = area).filter(indicador = indicador)
+				if len(valor_indicador) >= 1:
+					doc.write(row, col, valor_indicador[0].valor)
+				else:
+					doc.write(row, col, "")			
+				col += 1
+			row += 1 
+			col = 3
+		xls.save(response)
+		return response
 	else:
 		return HttpResponseRedirect('/login/')	
 #############################################
@@ -329,6 +398,21 @@ def borrar_usuario(request, id):
 		return HttpResponseRedirect("/usuario/")
 	else:
 		return HttpResponseRedirect("/dashboard/")
+
+def pass_usuario(request):
+	if request.user.is_authenticated() and request.user.is_active:
+		perfil = PerfilUsuario.objects.get(usuario = request.user)		
+		if request.method == "POST":
+			usuario = AuthUser.objects.get(id=perfil.usuario.id)
+			password = request.POST['contrasenia']
+			usuario.set_password(password)
+			usuario.save()
+			auth_logout(request)
+			return HttpResponseRedirect('/login/')
+		else:
+			return render(request, 'home/usuario/cambio_pass.html', { "perfil":perfil })
+	else:
+		return HttpResponseRedirect('/login/')
 
 ##############################################
 ####### Indicador ############################

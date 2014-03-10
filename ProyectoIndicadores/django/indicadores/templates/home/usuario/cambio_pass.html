@@ -1,8 +1,10 @@
 {% extends "home/base.html" %}
 {% block contenido %}
 <div class="row">
-	<form method="post" action="">
-		
+	<form method="post" action=""> {% csrf_token %}
+		<h1>Teclea la nueva contraseña</h1>
+		<input type="password" name="contrasenia" id="contrasenia" placeolder="contraseña" autofocus required>
+		<button class="btn btn-lg btn-primary" type="submit" > Guardar</button>
 	</form>
 </div>
 {% endblock %}

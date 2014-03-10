@@ -1,6 +1,8 @@
 {% extends "home/base_tabla.html" %}
 {% block contenido %}
-<table class="table">
+<h1>Indicadores concentrados <a href="/reporte/" class="btn btn-primary">Descargar</a>
+</h1>
+<table class="table table-hover table-condensed table-bordered">
 	<thead>
 		<tr>
 			<th>I's</th>
@@ -15,7 +17,7 @@
 		 {% for fila in matriz %}
 		 	<tr>
 		 	{% for columna in fila %}
-		 		<td>{{ columna }}</td>
+		 		{{ columna|safe }}
 		 	{% endfor %}
 		 	</tr>
 		 {% endfor %}
