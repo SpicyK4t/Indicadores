@@ -1,0 +1,65 @@
+{% extends "home/base_tabla.html" %}
+{% block contenido %}
+<table class="table  table-condenced table-bordered"> 
+	<thead>
+		<tr>
+			<th>Indicador</th>
+			<th>Meta</th>
+			<th>Institucional</th>
+			{% for area_valor in areas_valores %}
+				<th>{{ area_valor.area }}</th>
+			{% endfor %}
+		</tr>
+	</thead>
+	<tbody>
+		<tr>
+			<td>{{ indicador.i_s }} &nbsp; <span rel="tooltip" title="{{ indicador }}" class="glyphicon glyphicon-info-sign"></span></td>
+			<td> {{ indicador.meta }} </td>
+			{% if indicador.menor_igual %}
+					{% if indicador.valor_institucional < indicador.meta %}
+						<td class="success">{{ indicador.valor_institucional }}</td>
+					{% else %}
+						{% if indicador.valor_institucional > indicador.meta %}
+							<td class="danger"> {{ indicador.valor_institucional }} </td>
+						{% else %}
+							<td class="warning"> {{ indicador.valor_institucional }} </td>
+						{% endif %}
+					{% endif %}
+				{% else %}
+					{% if indicador.valor_institucional > indicador.meta %}
+						<td class="success">{{ area_valor.valor }}</td>
+					{% else %}
+						{% if indicador.valor_institucional < indicador.meta %}
+							<td class="danger"> {{ indicador.valor_institucional }} </td>
+						{% else %}
+							<td class="warning"> {{ indicador.valor_institucional }} </td>
+						{% endif %}
+					{% endif %}
+				{% endif %}
+			{% for area_valor in areas_valores %}
+				{% if indicador.menor_igual %}
+					{% if area_valor.valor < indicador.meta %}
+						<td class="success">{{ area_valor.valor }}</td>
+					{% else %}
+						{% if area_valor.valor > indicador.meta %}
+							<td class="danger"> {{ area_valor.valor }} </td>
+						{% else %}
+							<td class="warning"> {{ area_valor.valor }} </td>
+						{% endif %}
+					{% endif %}
+				{% else %}
+					{% if area_valor.valor > indicador.meta %}
+						<td class="success">{{ area_valor.valor }}</td>
+					{% else %}
+						{% if area_valor.valor < indicador.meta %}
+							<td class="danger"> {{ area_valor.valor }} </td>
+						{% else %}
+							<td class="warning"> {{ area_valor.valor }} </td>
+						{% endif %}
+					{% endif %}
+				{% endif %}
+			{% endfor %}
+		</tr>
+	</tbody>
+</table>
+{% endblock %}

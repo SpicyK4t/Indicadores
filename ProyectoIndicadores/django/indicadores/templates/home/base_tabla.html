@@ -47,8 +47,8 @@
 		                <li><a href="/sector/">Sector</a></li>
   						<li><a href="/indicador/">Indicador</a></li>
   						<li><a href="/area/">Area</a></li>
-  						<li><a href="/usuario/">Usuario</a></li>	
-  						<li><a href="/indicadores/">Condensado de Indicadores</a></li>	                
+  						<li><a href="/usuario/">Usuario</a></li>	                
+  						<li><a href="/indicadores/">Condensado de Indicadores</a></li>
 		              </ul>
 		            </li>
 		            {% endif %}
@@ -72,11 +72,9 @@
 		      </div>
 		    </div>
 		</nav>   		
-		<div class="container">
-			<div class="row">
-				{% block contenido %}
-				{% endblock %}	
-			</div>
+		<div>
+			{% block contenido %}
+			{% endblock %}	
 		</div>
 		<footer>
 			<hr />

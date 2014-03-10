@@ -29,6 +29,9 @@ urlpatterns = patterns('',
 
     ## Dashboars ##
     url(r'^dashboard/$'	, views.dashboard, name="dashboard"),
+    url(r'^indicadores/$' , views.dashboard_condensado, name="dashboard_condensado"),
+    url(r'^dashboard/(?P<id>[0-9]+)/llenar/$' , views.llenar_dashboard, name="llenar_dashboard"),
+    url(r'^dashboard/(?P<id>[0-9]+)/ver/$' , views.ver_dashboard, name="ver_dashboard"),
     url(r'^$', views.dashboard, name="home"),
 
     ## Sector ##

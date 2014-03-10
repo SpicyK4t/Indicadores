@@ -1,0 +1,25 @@
+{% extends "home/base.html" %}
+{% block contenido %}
+	<form method="post" action=""> {% csrf_token %}
+		<div class="row">
+			{% for indicador_valor in indicador_valores %}
+				<div class="col-lg-3 col-md-4 col-sm-5">
+					<div class="jumbotron">
+						<div>
+							<input style="display: none;" type="checkbox" name="areas_valor[]" value="{{ indicador_valor.id  }}" checked="checked" />
+							<h3>{{ indicador_valor.area }}</h3>
+						</div>
+						<div>	
+							{% if not indicador_valor.valor  %}
+								<input name="valor[]" class="form-control" type="number" min="0" max="100" step=".5" value="">
+							{% else %}								
+								<input name="valor[]" class="form-control" type="number" min="0" max="100" step=".5" value="{{ indicador_valor.valor }}">
+							{% endif %}
+						</div>
+					</div>
+				</div>
+			{% endfor %}		
+		</div>
+		<button class="btn btn-lg btn-primary btn-block" type="submit" > Guardar</button>
+	</form>
+{% endblock %}

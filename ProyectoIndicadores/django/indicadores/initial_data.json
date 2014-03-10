@@ -676,7 +676,8 @@
   "pk" : 1,
   "fields" : {
     "indicador" : 1,
-    "area" : 1
+    "area" : 1,
+    "valor" : 0
   }
  },
  {
@@ -684,7 +685,8 @@
   "pk" : 2,
   "fields" : {
     "indicador" : 1,
-    "area" : 2
+    "area" : 2,
+    "valor" : 0
   }
  },
  {
@@ -692,7 +694,8 @@
   "pk" : 3,
   "fields" : {
     "indicador" : 1,
-    "area" : 3
+    "area" : 3,
+    "valor" : 0
   }
  },
  {
@@ -700,7 +703,8 @@
   "pk" : 4,
   "fields" : {
     "indicador" : 1,
-    "area" : 4
+    "area" : 4,
+    "valor" : 0
   }
  },
  {
@@ -708,7 +712,8 @@
   "pk" : 5,
   "fields" : {
     "indicador" : 1,
-    "area" : 6
+    "area" : 6,
+    "valor" : 0
   }
  },
  {
@@ -716,7 +721,8 @@
   "pk" : 6,
   "fields" : {
     "indicador" : 1,
-    "area" : 7
+    "area" : 7,
+    "valor" : 0
   }
  },
  {
@@ -724,7 +730,8 @@
   "pk" : 7,
   "fields" : {
     "indicador" : 1,
-    "area" : 8
+    "area" : 8,
+    "valor" : 0
   }
  },
  {
@@ -732,7 +739,8 @@
   "pk" : 8,
   "fields" : {
     "indicador" : 1,
-    "area" : 10
+    "area" : 10,
+    "valor" : 0
   }
  },
  {
@@ -740,7 +748,8 @@
   "pk" : 9,
   "fields" : {
     "indicador" : 1,
-    "area" : 11
+    "area" : 11,
+    "valor" : 0
   }
  },
  {
@@ -748,7 +757,8 @@
   "pk" : 10,
   "fields" : {
     "indicador" : 1,
-    "area" : 12
+    "area" : 12,
+    "valor" : 0
   }
  },
  {
@@ -756,7 +766,8 @@
   "pk" : 11,
   "fields" : {
     "indicador" : 1,
-    "area" : 13
+    "area" : 13,
+    "valor" : 0
   }
  },
  {
@@ -764,7 +775,8 @@
   "pk" : 12,
   "fields" : {
     "indicador" : 1,
-    "area" : 14
+    "area" : 14,
+    "valor" : 0
   }
  },
  {
@@ -772,7 +784,8 @@
   "pk" : 13,
   "fields" : {
     "indicador" : 1,
-    "area" : 15
+    "area" : 15,
+    "valor" : 0
   }
  },
  {
@@ -780,7 +793,8 @@
   "pk" : 14,
   "fields" : {
     "indicador" : 1,
-    "area" : 16
+    "area" : 16,
+    "valor" : 0
   }
  },
  {
@@ -788,7 +802,8 @@
   "pk" : 15,
   "fields" : {
     "indicador" : 1,
-    "area" : 17
+    "area" : 17,
+    "valor" : 0
   }
  },
  {
@@ -796,7 +811,8 @@
   "pk" : 16,
   "fields" : {
     "indicador" : 1,
-    "area" : 18
+    "area" : 18,
+    "valor" : 0
   }
  },
  {
@@ -804,7 +820,8 @@
   "pk" : 17,
   "fields" : {
     "indicador" : 1,
-    "area" : 22
+    "area" : 22,
+    "valor" : 0
   }
  },
  {
@@ -812,7 +829,8 @@
   "pk" : 18,
   "fields" : {
     "indicador" : 1,
-    "area" : 23
+    "area" : 23,
+    "valor" : 0
   }
  },
  {
@@ -820,7 +838,8 @@
   "pk" : 19,
   "fields" : {
     "indicador" : 1,
-    "area" : 25
+    "area" : 25,
+    "valor" : 0
   }
  },
  {
@@ -828,7 +847,8 @@
   "pk" : 20,
   "fields" : {
     "indicador" : 1,
-    "area" : 26
+    "area" : 26,
+    "valor" : 0
   }
  },
  {
@@ -836,7 +856,8 @@
   "pk" : 21,
   "fields" : {
     "indicador" : 1,
-    "area" : 27
+    "area" : 27,
+    "valor" : 0
   }
  },
  {
@@ -844,7 +865,8 @@
   "pk" : 22,
   "fields" : {
     "indicador" : 1,
-    "area" : 29
+    "area" : 29,
+    "valor" : 0
   }
  },
  {
@@ -852,7 +874,8 @@
   "pk" : 23,
   "fields" : {
     "indicador" : 1,
-    "area" : 30
+    "area" : 30,
+    "valor" : 0
   }
  },
  {
@@ -860,7 +883,8 @@
   "pk" : 24,
   "fields" : {
     "indicador" : 1,
-    "area" : 31
+    "area" : 31,
+    "valor" : 0
   }
  },
  {
@@ -868,7 +892,8 @@
   "pk" : 25,
   "fields" : {
     "indicador" : 1,
-    "area" : 32
+    "area" : 32,
+    "valor" : 0
   }
  },
  {
@@ -876,7 +901,8 @@
   "pk" : 26,
   "fields" : {
     "indicador" : 1,
-    "area" : 33
+    "area" : 33,
+    "valor" : 0
   }
  },
  {
@@ -884,7 +910,8 @@
   "pk" : 27,
   "fields" : {
     "indicador" : 2,
-    "area" : 6
+    "area" : 6,
+    "valor" : 0
   }
  },
  {
@@ -892,7 +919,8 @@
   "pk" : 28,
   "fields" : {
     "indicador" : 2,
-    "area" : 7
+    "area" : 7,
+    "valor" : 0
   }
  },
  {
@@ -900,7 +928,8 @@
   "pk" : 29,
   "fields" : {
     "indicador" : 2,
-    "area" : 8
+    "area" : 8,
+    "valor" : 0
   }
  },
  {
@@ -908,7 +937,8 @@
   "pk" : 30,
   "fields" : {
     "indicador" : 2,
-    "area" : 10
+    "area" : 10,
+    "valor" : 0
   }
  },
  {
@@ -916,7 +946,8 @@
   "pk" : 31,
   "fields" : {
     "indicador" : 2,
-    "area" : 11
+    "area" : 11,
+    "valor" : 0
   }
  },
  {
@@ -924,7 +955,8 @@
   "pk" : 32,
   "fields" : {
     "indicador" : 2,
-    "area" : 12
+    "area" : 12,
+    "valor" : 0
   }
  },
  {
@@ -932,7 +964,8 @@
   "pk" : 33,
   "fields" : {
     "indicador" : 2,
-    "area" : 14
+    "area" : 14,
+    "valor" : 0
   }
  },
  {
@@ -940,7 +973,8 @@
   "pk" : 34,
   "fields" : {
     "indicador" : 2,
-    "area" : 15
+    "area" : 15,
+    "valor" : 0
   }
  },
  {
@@ -948,7 +982,8 @@
   "pk" : 35,
   "fields" : {
     "indicador" : 2,
-    "area" : 17
+    "area" : 17,
+    "valor" : 0
   }
  },
  {
@@ -956,7 +991,8 @@
   "pk" : 36,
   "fields" : {
     "indicador" : 2,
-    "area" : 18
+    "area" : 18,
+    "valor" : 0
   }
  },
  {
@@ -964,7 +1000,8 @@
   "pk" : 37,
   "fields" : {
     "indicador" : 2,
-    "area" : 22
+    "area" : 22,
+    "valor" : 0
   }
  },
  {
@@ -972,7 +1009,8 @@
   "pk" : 38,
   "fields" : {
     "indicador" : 2,
-    "area" : 23
+    "area" : 23,
+    "valor" : 0
   }
  },
  {
@@ -980,7 +1018,8 @@
   "pk" : 39,
   "fields" : {
     "indicador" : 2,
-    "area" : 25
+    "area" : 25,
+    "valor" : 0
   }
  },
  {
@@ -988,7 +1027,8 @@
   "pk" : 40,
   "fields" : {
     "indicador" : 2,
-    "area" : 26
+    "area" : 26,
+    "valor" : 0
   }
  },
  {
@@ -996,7 +1036,8 @@
   "pk" : 41,
   "fields" : {
     "indicador" : 2,
-    "area" : 27
+    "area" : 27,
+    "valor" : 0
   }
  },
  {
@@ -1004,7 +1045,8 @@
   "pk" : 42,
   "fields" : {
     "indicador" : 2,
-    "area" : 29
+    "area" : 29,
+    "valor" : 0
   }
  },
  {
@@ -1012,7 +1054,8 @@
   "pk" : 43,
   "fields" : {
     "indicador" : 2,
-    "area" : 33
+    "area" : 33,
+    "valor" : 0
   }
  },
  {
@@ -1020,7 +1063,8 @@
   "pk" : 44,
   "fields" : {
     "indicador" : 3,
-    "area" : 6
+    "area" : 6,
+    "valor" : 0
   }
  },
  {
@@ -1028,7 +1072,8 @@
   "pk" : 45,
   "fields" : {
     "indicador" : 3,
-    "area" : 7
+    "area" : 7,
+    "valor" : 0
   }
  },
  {
@@ -1036,7 +1081,8 @@
   "pk" : 46,
   "fields" : {
     "indicador" : 3,
-    "area" : 8
+    "area" : 8,
+    "valor" : 0
   }
  },
  {
@@ -1044,7 +1090,8 @@
   "pk" : 47,
   "fields" : {
     "indicador" : 3,
-    "area" : 10
+    "area" : 10,
+    "valor" : 0
   }
  },
  {
@@ -1052,7 +1099,8 @@
   "pk" : 48,
   "fields" : {
     "indicador" : 3,
-    "area" : 11
+    "area" : 11,
+    "valor" : 0
   }
  },
  {
@@ -1060,7 +1108,8 @@
   "pk" : 49,
   "fields" : {
     "indicador" : 3,
-    "area" : 12
+    "area" : 12,
+    "valor" : 0
   }
  },
  {
@@ -1068,7 +1117,8 @@
   "pk" : 50,
   "fields" : {
     "indicador" : 3,
-    "area" : 14
+    "area" : 14,
+    "valor" : 0
   }
  }
 ]

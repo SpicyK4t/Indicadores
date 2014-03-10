@@ -1,5 +1,37 @@
 {% extends "home/base.html" %}
 {% block contenido %}
+
 <h1>Mis Indicadores</h1>
+
+	{% for indicador in indicadores %}
+		<div class="jumbotron">
+			<div class="container">
+				<h3>{{ indicador }}</h3>
+				<h5>Valor institucional <span class="badge"> {{ indicador.valor_institucional }} </span></h5>
+				<div class="btn-group">
+					<a href="/dashboard/{{ indicador.id }}/llenar" class="btn btn-lg btn-primary" >Llenar</a>
+					<a href="/dashboard/{{ indicador.id }}/ver" class="btn btn-lg btn-primary">Ver</a>
+				</div>
+				<hr />
+				{% if not indicador.valor_institucional%}
+					<div class="alert alert-danger">No se tienen valores establecidos </div>
+				{% else %}
+					{% if indicador.menor_igual %}
+						{% if indicador.valor_institucional <= indicador.meta %}
+							<span class="label label-success">Se logró valor institucional</span>
+						{% else %}
+							<span class="label label-danger">No se logró valor institucional</span>
+						{% endif %}
+					{% else %}
+						{% if indicador.valor_institucional >= indicador.meta %}
+							<span class="label label-success">Se logró valor institucional</span>
+						{% else %}
+							<span class="label label-danger">No se logró valor institucional</span>
+						{% endif %}
+					{% endif %}
+				{% endif %}
+			</div>
+		</div>
+	{% endfor %}	
 
 {% endblock %}

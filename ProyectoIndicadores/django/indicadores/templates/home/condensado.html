@@ -1,0 +1,24 @@
+{% extends "home/base_tabla.html" %}
+{% block contenido %}
+<table class="table">
+	<thead>
+		<tr>
+			<th>I's</th>
+			<th>Meta</th>
+			<th>Institucional</th>
+			{% for area in areas %}
+				<th> {{ area }} </th>
+			{% endfor %}
+		</tr>
+	</thead>
+	<tbody>
+		 {% for fila in matriz %}
+		 	<tr>
+		 	{% for columna in fila %}
+		 		<td>{{ columna }}</td>
+		 	{% endfor %}
+		 	</tr>
+		 {% endfor %}
+ 	</tbody>
+</table>
+{% endblock %}

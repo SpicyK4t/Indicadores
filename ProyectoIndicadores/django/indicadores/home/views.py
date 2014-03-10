@@ -76,13 +76,77 @@ def dashboard(request):
 	else:
 		return HttpResponseRedirect('/login/')
 
+def ver_dashboard(request, id):
+	if request.user.is_authenticated() and request.user.is_active:
+		perfil = PerfilUsuario.objects.get(usuario = request.user)
+		indicador = Indicador.objects.get(id = id)
+		areas_valores = Indicador_Area.objects.filter(indicador=indicador)
+		if indicador.proveedor == perfil:
+			return render(request, 'home/indicador/ver_valores.html', {"perfil":perfil, "areas_valores":areas_valores, "indicador":indicador } )
+		else:
+			return HttpResponseRedirect("/error/")
+
+def llenar_dashboard(request, id):
+	if request.user.is_authenticated() and request.user.is_active:
+		perfil = PerfilUsuario.objects.get(usuario = request.user)
+		indicador = Indicador.objects.get(id = id)
+		indicador_valores = Indicador_Area.objects.filter(indicador = indicador) 
+
+		if request.method == "POST":
+			if 	request.POST.getlist('areas_valor[]') and request.POST.getlist('valor[]'):
+				areas_valor = request.POST.getlist('areas_valor[]')
+				valor = request.POST.getlist('valor[]')
+
+				for i in range(len(areas_valor)):
+					indicador_valor = get_object_or_404(indicador_valores, id = areas_valor[i])
+					if len(str(valor[i])) == 0:
+						indicador_valor.valor = None
+					else: 
+						indicador_valor.valor = valor[i]
+					indicador_valor.save()
+
+		if indicador.proveedor == perfil:
+			return render(request, 'home/indicador/llenar_valores.html', {"perfil":perfil, "indicador_valores":indicador_valores} )
+		else:
+			return HttpResponseRedirect("/error/")
+
 def mis_indicadores(request):
 	if request.user.is_authenticated() and request.user.is_active:
 		perfil = PerfilUsuario.objects.get(usuario = request.user)
 		indicadores = Indicador.objects.filter(proveedor = perfil)
-		return render(request, 'home/indicador/mis_indicadores.html', { "perfil":perfil })
+		return render(request, 'home/indicador/mis_indicadores.html', { "perfil":perfil, "indicadores":indicadores })
 	else:
 		return HttpResponseRedirect('/login/')
+
+def dashboard_condensado(request):
+	if request.user.is_authenticated() and request.user.is_active and PerfilUsuario.objects.get(usuario = request.user).admin == True:
+		perfil = PerfilUsuario.objects.get(usuario = request.user)	
+		indicadores = Indicador.objects.all()
+		areas = Area.objects.all()
+
+		matriz = [[""] * (len(areas) + 3)] * 2
+		fila = 0
+		columna  = 3
+
+		for indicador in indicadores[:2]:			
+			print "fila: " + str(fila)
+			matriz[fila][0] = indicador.i_s
+			matriz[fila][1] = str(indicador.meta)
+			matriz[fila][2] = indicador.valor_institucional()			
+ 			for area in areas:
+ 				valor_indicador_area = Indicador_Area.objects.filter(indicador=indicador).filter(area=area)				
+				if len(valor_indicador_area) == 1:	
+					valor = valor_indicador_area[0].valor		
+					matriz[fila][columna] = valor				
+				print "columna: " + str(columna)
+				columna += 1
+			#print str(matriz) + "\n"
+			fila += 1
+			columna = 3
+		print matriz
+		return render(request, 'home/condensado.html', {"perfil": perfil, "indicadores":indicadores, "areas":areas, "matriz":matriz})
+	else:
+		return HttpResponseRedirect('/login/')	
 #############################################
 ###### Areas ################################
 #############################################
